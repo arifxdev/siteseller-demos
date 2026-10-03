@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barber Kings | Brownsville TX Barbershop - Fades, Beard Trims, Kids Cuts</title>
+<meta name="description" content="Barber Kings, Brownsville's top-rated barbershop. 4.9 stars, 389 Google reviews. Fades, beard trims, kids cuts, hot towel shaves. Call (956) 621-4101.">
+<style>
+  :root{--ink:#131313;--ink2:#1d1d1d;--gold:#c9a227;--gold2:#e6c35c;--cream:#f7f3ea;--muted:#a8a29e;--line:#2e2e2e}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif}
+  html{scroll-behavior:smooth}
+  .container{max-width:1080px;margin:0 auto;padding:0 20px}
+  header{background:rgba(19,19,19,.96);padding:14px 0;position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line)}
+  .nav{display:flex;justify-content:space-between;align-items:center}
+  .logo{color:#fff;font-weight:800;font-size:1.1rem;letter-spacing:1px}
+  .logo span{color:var(--gold)}
+  .nav a{color:#d4cfc6;text-decoration:none;margin-left:18px;font-size:.88rem}
+  .nav a:hover{color:var(--gold2)}
+  .hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 55%,#262626 100%);color:#fff;padding:96px 0 104px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% -60px,rgba(201,162,39,.22),transparent 60%)}
+  .hero .inner{position:relative}
+  .badge{display:inline-block;border:1px solid var(--gold);color:var(--gold2);font-size:.78rem;letter-spacing:2px;padding:7px 16px;border-radius:999px;margin-bottom:22px;text-transform:uppercase}
+  .hero h1{font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.12;letter-spacing:.5px}
+  .hero h1 span{color:var(--gold)}
+  .hero p{color:#cfc9bf;margin:20px auto 32px;max-width:540px;line-height:1.65;font-size:1.02rem}
+  .btn{display:inline-block;background:var(--gold);color:#131313;padding:15px 34px;border-radius:8px;text-decoration:none;font-weight:800;letter-spacing:.5px;transition:.2s;box-shadow:0 8px 24px rgba(201,162,39,.3)}
+  .btn:hover{transform:translateY(-2px);background:var(--gold2)}
+  .btn-ghost{display:inline-block;border:1px solid #55534c;color:#e8e2d7;padding:14px 30px;border-radius:8px;text-decoration:none;font-weight:600;margin-left:12px;transition:.2s}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+  .strip{background:var(--gold);color:#131313;padding:12px 0;font-weight:700;font-size:.85rem;letter-spacing:1.5px;text-align:center;text-transform:uppercase}
+  section{padding:76px 0}
+  .alt{background:var(--cream)}
+  .eyebrow{color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:.78rem;text-align:center}
+  h2{font-size:clamp(1.4rem,3vw,2.1rem);color:var(--ink);text-align:center;margin:10px 0 14px}
+  .sub{color:#6b665e;max-width:580px;margin:0 auto;line-height:1.65;text-align:center}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:42px}
+  .card{background:#fff;border-radius:12px;padding:26px;box-shadow:0 4px 16px rgba(19,19,19,.08);border:1px solid #eee7da;transition:.2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(19,19,19,.13)}
+  .price-tag{float:right;color:var(--gold);font-weight:800}
+  .card h3{color:var(--ink);font-size:1rem;margin-bottom:8px}
+  .card p{color:#6b665e;font-size:.88rem;line-height:1.55}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:42px}
+  .shot{border-radius:12px;min-height:180px;background:linear-gradient(150deg,#1d1d1d,#2f2b22);display:flex;align-items:flex-end;padding:16px;color:var(--gold2);font-weight:700;font-size:.85rem;letter-spacing:1px;position:relative;overflow:hidden}
+  .shot::after{content:"✂";position:absolute;top:12px;right:16px;font-size:1.6rem;opacity:.35}
+  .tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:42px}
+  .tcard{background:#fff;border-radius:12px;padding:26px;box-shadow:0 4px 16px rgba(19,19,19,.08);border-top:4px solid var(--gold)}
+  .stars{color:var(--gold);letter-spacing:3px;margin-bottom:10px}
+  .tcard p{color:#3d3a34;line-height:1.6;font-size:.93rem}
+  .tcard small{display:block;margin-top:12px;color:#8a8378;font-weight:600}
+  .tnote{text-align:center;font-size:.78rem;color:#8a8378;margin-top:22px;font-style:italic}
+  .contact{background:linear-gradient(160deg,var(--ink),#222);color:#fff}
+  .contact .eyebrow{color:var(--gold2)}.contact h2{color:#fff}.contact .sub{color:#b5afa4}
+  .cwrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+  @media(max-width:800px){.cwrap{grid-template-columns:1fr}}
+  .cinfo p{margin:13px 0;color:#ddd7cb;line-height:1.6}
+  .cinfo a{color:var(--gold2);text-decoration:none}
+  .form{background:#fff;border-radius:12px;padding:26px;color:var(--ink)}
+  .form input,.form textarea,.form select{width:100%;padding:12px;margin:8px 0 14px;border:1px solid #ddd5c5;border-radius:8px;font-size:.95rem}
+  .form .btn{width:100%;text-align:center;border:none;cursor:pointer}
+  footer{background:#0c0c0c;color:#7d786e;padding:26px 0;font-size:.8rem;text-align:center;line-height:1.7}
+  .wa{position:fixed;bottom:22px;right:22px;width:58px;height:58px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,211,102,.45);z-index:60;transition:.2s}
+  .wa:hover{transform:scale(1.08)}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="logo">BARBER <span>KINGS</span></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#work">Our Cuts</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#book">Book</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container inner">
+    <span class="badge">★ 4.9 · 389 Google reviews · Best of Brownsville</span>
+    <h1>Brownsville's Home of the <span>Perfect Fade</span></h1>
+    <p>Precision cuts, beard sculpting and hot towel shaves from the shop Brownsville keeps voting #1. Walk in a king, walk out royalty.</p>
+    <a class="btn" href="tel:+19566214101">Call (956) 621-4101</a>
+    <a class="btn-ghost" href="#book">Book a chair</a>
+  </div>
+</div>
+
+<div class="strip">Walk-ins welcome · Open 6 days a week</div>
+
+<section id="services">
+  <div class="container">
+    <div class="eyebrow">The Menu</div>
+    <h2>Cuts &amp; Services</h2>
+    <p class="sub">Every service ends with a hot towel finish and a style-out. Cash and card accepted.</p>
+    <div class="grid">
+      <div class="card"><span class="price-tag">$</span><h3>Kings Cut</h3><p>Signature precision haircut, tapered and styled to your crown. Includes hot towel finish.</p></div>
+      <div class="card"><span class="price-tag">$</span><h3>Skin Fade</h3><p>Razor-sharp low, mid or high fade, blended seamless. Our most requested cut.</p></div>
+      <div class="card"><span class="price-tag">$</span><h3>Beard Sculpt</h3><p>Line-up, shape and condition with hot towel and razor detailing.</p></div>
+      <div class="card"><span class="price-tag">$</span><h3>Hot Towel Shave</h3><p>Classic straight-razor shave with steamed towels and cooling balm.</p></div>
+      <div class="card"><span class="price-tag">$</span><h3>Kids Cut</h3><p>Patient, friendly cuts for the young kings. Parents stay close by.</p></div>
+      <div class="card"><span class="price-tag">$</span><h3>Cut + Beard Combo</h3><p>The full royal treatment: haircut plus beard sculpt, one chair, one visit.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="work">
+  <div class="container">
+    <div class="eyebrow">Fresh out the chair</div>
+    <h2>Our Work</h2>
+    <p class="sub">Fades, line-ups and beard work from the Kings chairs.</p>
+    <div class="gallery">
+      <div class="shot">Mid fade · done at Kings</div>
+      <div class="shot">Beard sculpt + line-up</div>
+      <div class="shot">Kids first cut</div>
+      <div class="shot">Straight razor finish</div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <div class="eyebrow">Word on the street</div>
+    <h2>Why Brownsville Keeps Coming Back</h2>
+    <div class="tgrid">
+      <div class="tcard"><div class="stars">★★★★★</div><p>"Best barbershop in Brownsville, hands down. My fade lasts for weeks and they never rush you."</p><small>Verified Google review</small></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p>"Clean shop, great music, barbers who actually listen. My kids won't sit anywhere else now."</p><small>Verified Google review</small></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p>"The attention to detail is unmatched. Beard line-up was razor perfect. Worth every dollar."</p><small>Verified Google review</small></div>
+    </div>
+    <p class="tnote">Sample layout — your real Google reviews (4.9★ from 389 reviews) will appear here.</p>
+  </div>
+</section>
+
+<section class="contact" id="book">
+  <div class="container">
+    <div class="eyebrow">Take the throne</div>
+    <h2>Book Your Chair</h2>
+    <p class="sub">Call, WhatsApp or send a note — we'll have you in and out looking royal.</p>
+    <div class="cwrap">
+      <div class="cinfo">
+        <p><strong>Phone:</strong> <a href="tel:+19566214101">(956) 621-4101</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/19566214101" target="_blank">Message the shop instantly</a></p>
+        <p><strong>Address:</strong> 1424 W Price Rd, Brownsville, TX 78520</p>
+        <p><strong>Hours:</strong> Monday–Saturday, 9 AM start · walk-ins welcome</p>
+        <p>Prefer to book ahead? Use the form and we'll confirm your slot.</p>
+      </div>
+      <form class="form" onsubmit="event.preventDefault();alert('Demo form — connect it to receive bookings by email or WhatsApp.');">
+        <input type="text" placeholder="Your name" required>
+        <input type="tel" placeholder="Phone number" required>
+        <select><option>Kings Cut</option><option>Skin Fade</option><option>Beard Sculpt</option><option>Hot Towel Shave</option><option>Kids Cut</option><option>Cut + Beard Combo</option></select>
+        <textarea rows="3" placeholder="Preferred day and time..."></textarea>
+        <button class="btn" type="submit">Request a slot</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Barber Kings · 1424 W Price Rd, Brownsville, TX 78520 · <a href="tel:+19566214101" style="color:#c9a227;text-decoration:none">(956) 621-4101</a><br>
+  Demo website preview built by Arif — for demonstration purposes.
+</footer>
+
+<a class="wa" href="https://wa.me/19566214101" target="_blank" aria-label="Chat on WhatsApp">
+<svg viewBox="http://www.w3.org/2000/svg" width="30" height="30"><path fill="#fff" d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.3.1.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.6.4 0 .1 0 .9-.4 1.5z" transform="scale(1.1)"/></svg>
+</a>
+</body>
+</html>
