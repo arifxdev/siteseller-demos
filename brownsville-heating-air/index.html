@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brownsville Heating & Air Conditioning | AC Repair & HVAC Service in Brownsville, TX</title>
+<meta name="description" content="Fast, honest AC repair, installation and heating service in Brownsville, TX. 4.9-star rated with 378 reviews. Call (956) 527-5330.">
+<style>
+  :root{--navy:#0f2740;--navy2:#16395c;--orange:#f97316;--ice:#e0f2fe;--text:#1e293b;--muted:#64748b;--bg:#f8fafc;}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif}
+  html{scroll-behavior:smooth}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+  header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:16px 0;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+  .nav{display:flex;justify-content:space-between;align-items:center}
+  .logo{font-size:1.15rem;font-weight:700}
+  .logo span{color:var(--orange)}
+  .nav a{color:#dbeafe;text-decoration:none;margin-left:20px;font-size:.92rem}
+  .nav a:hover{color:#fff}
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#1e4a78 100%);color:#fff;padding:88px 0 96px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.35),transparent 70%)}
+  .hero .badge{display:inline-block;background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.5);color:#fdba74;font-size:.82rem;padding:6px 14px;border-radius:999px;margin-bottom:20px}
+  .hero h1{font-size:clamp(1.7rem,4vw,2.7rem);line-height:1.15;max-width:640px}
+  .hero h1 span{color:var(--orange)}
+  .hero p{color:#cbd5e1;margin:18px 0 30px;max-width:560px;font-size:1.02rem;line-height:1.6}
+  .btn{display:inline-block;background:var(--orange);color:#fff;padding:14px 30px;border-radius:10px;text-decoration:none;font-weight:600;font-size:1rem;transition:.2s;box-shadow:0 6px 20px rgba(249,115,22,.35)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(249,115,22,.45)}
+  .btn-outline{display:inline-block;border:2px solid rgba(255,255,255,.4);color:#fff;padding:12px 26px;border-radius:10px;text-decoration:none;font-weight:600;margin-left:12px;transition:.2s}
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+  .stats{background:#fff;padding:34px 0;box-shadow:0 -6px 24px rgba(0,0,0,.06)}
+  .stats .container{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between}
+  .stat{text-align:center;flex:1;min-width:140px}
+  .stat b{font-size:1.9rem;color:var(--navy);display:block}
+  .stat small{color:var(--muted)}
+  section{padding:72px 0}
+  .eyebrow{color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:.8rem}
+  h2{font-size:clamp(1.4rem,3vw,2rem);color:var(--navy);margin:8px 0 12px}
+  .sub{color:var(--muted);max-width:600px;line-height:1.6}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:36px}
+  .card{background:#fff;border-radius:14px;padding:26px;box-shadow:0 4px 18px rgba(15,39,64,.08);transition:.2s;border:1px solid #eef2f7}
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(15,39,64,.13)}
+  .card .icon{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--ice),#bae6fd);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px}
+  .card h3{color:var(--navy);font-size:1.05rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.9rem;line-height:1.55}
+  .alt{background:var(--bg)}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:36px}
+  .shot{border-radius:14px;min-height:190px;display:flex;align-items:flex-end;padding:16px;color:#fff;font-weight:600;font-size:.9rem;background:linear-gradient(135deg,var(--navy),var(--navy2));position:relative;overflow:hidden}
+  .shot::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(249,115,22,.25),transparent 60%)}
+  .shot span{position:relative}
+  .tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:36px}
+  .tcard{background:#fff;border-radius:14px;padding:26px;box-shadow:0 4px 18px rgba(15,39,64,.08);border-top:4px solid var(--orange)}
+  .stars{color:#f59e0b;letter-spacing:2px;margin-bottom:10px}
+  .tcard p{color:var(--text);line-height:1.6;font-size:.95rem}
+  .tcard small{display:block;margin-top:14px;color:var(--muted)}
+  .tnote{font-size:.78rem;color:var(--muted);margin-top:22px;font-style:italic}
+  .contact{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff}
+  .contact .eyebrow{color:#fdba74}.contact h2{color:#fff}
+  .contact .sub{color:#cbd5e1}
+  .cwrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:36px}
+  @media(max-width:800px){.cwrap{grid-template-columns:1fr}}
+  .cinfo p{margin:14px 0;color:#e2e8f0;line-height:1.6}
+  .cinfo a{color:#fdba74}
+  .form{background:#fff;border-radius:14px;padding:26px;color:var(--text)}
+  .form input,.form textarea,.form select{width:100%;padding:12px;margin:8px 0 16px;border:1px solid #d7dee8;border-radius:8px;font-size:.95rem}
+  .form .btn{width:100%;text-align:center;border:none;cursor:pointer;font-size:1rem}
+  footer{background:#0a1c30;color:#94a3b8;padding:28px 0;font-size:.82rem;text-align:center;line-height:1.7}
+  footer a{color:#cbd5e1}
+  .wa{position:fixed;bottom:22px;right:22px;width:58px;height:58px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,211,102,.45);z-index:60;transition:.2s}
+  .wa:hover{transform:scale(1.08)}
+  .wa svg{width:30px;height:30px;fill:#fff}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="logo">Brownsville <span>Heating &amp; Air</span></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#gallery">Work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <span class="badge">★ 4.9 · 378 Google reviews</span>
+    <h1>Fast, honest AC repair &amp; heating service in <span>Brownsville, TX</span></h1>
+    <p>When the South Texas heat hits, your family shouldn't wait. Same-day AC repair, installation and maintenance from a local team your neighbors already trust.</p>
+    <a class="btn" href="tel:+19565275330">Call (956) 527-5330</a>
+    <a class="btn-outline" href="#contact">Book a visit</a>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="container">
+    <div class="stat"><b>4.9★</b><small>Google rating</small></div>
+    <div class="stat"><b>378</b><small>Customer reviews</small></div>
+    <div class="stat"><b>Same-day</b><small>AC repair</small></div>
+    <div class="stat"><b>Local</b><small>Brownsville family business</small></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="eyebrow">What we do</div>
+    <h2>Full-service heating &amp; air conditioning</h2>
+    <p class="sub">Residential and commercial HVAC service across Brownsville and the Rio Grande Valley.</p>
+    <div class="grid">
+      <div class="card"><div class="icon">❄️</div><h3>AC Repair</h3><p>Fast diagnostics and honest quotes. We fix all major brands, often the same day you call.</p></div>
+      <div class="card"><div class="icon">🔧</div><h3>AC Installation</h3><p>Energy-efficient system upgrades sized right for your home, with clear upfront pricing.</p></div>
+      <div class="card"><div class="icon">🔥</div><h3>Heating Service</h3><p>Furnace repair, maintenance and replacement for those rare but real cold snaps.</p></div>
+      <div class="card"><div class="icon">🛠️</div><h3>Maintenance Plans</h3><p>Seasonal tune-ups that keep your system efficient and your warranty intact.</p></div>
+      <div class="card"><div class="icon">💨</div><h3>Duct Cleaning</h3><p>Cleaner air, lower bills. Full duct inspection and cleaning for homes and offices.</p></div>
+      <div class="card"><div class="icon">🏠</div><h3>Commercial HVAC</h3><p>Reliable service contracts for offices, retail and restaurants in the 956.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="gallery">
+  <div class="container">
+    <div class="eyebrow">Our work</div>
+    <h2>Recent jobs in the RGV</h2>
+    <p class="sub">Installations, repairs and maintenance across Brownsville neighborhoods.</p>
+    <div class="gallery">
+      <div class="shot"><span>New system install · Southmost</span></div>
+      <div class="shot"><span>Compressor repair · West Brownsville</span></div>
+      <div class="shot"><span>Duct cleaning · Riverside</span></div>
+      <div class="shot"><span>Maintenance visit · Los Ebanos</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <div class="eyebrow">Why neighbors trust us</div>
+    <h2>Reviews</h2>
+    <div class="tgrid">
+      <div class="tcard"><div class="stars">★★★★★</div><p>"Quick to come out, explained everything clearly, fair price. AC was blowing cold the same afternoon."</p><small>Verified Google review</small></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p>"Honest people. They told me a simple repair was all I needed instead of pushing a whole new unit."</p><small>Verified Google review</small></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p>"Professional from the first call to the final walkthrough. Highly recommend to anyone in Brownsville."</p><small>Verified Google review</small></div>
+    </div>
+    <p class="tnote">Sample layout — your real Google reviews (4.9★ from 378 reviews) will appear here.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Book your visit today</h2>
+    <p class="sub">Call, WhatsApp or send a message — we'll get back to you fast.</p>
+    <div class="cwrap">
+      <div class="cinfo">
+        <p><strong>Phone:</strong> <a href="tel:+19565275330">(956) 527-5330</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/19565275330" target="_blank">Message us instantly</a></p>
+        <p><strong>Address:</strong> 636 Central Blvd #4, Brownsville, TX 78520</p>
+        <p><strong>Hours:</strong> Mon–Sun, open 24 hours for emergency calls</p>
+        <p>Prefer email? Use the form and we'll reply the same day.</p>
+      </div>
+      <form class="form" onsubmit="event.preventDefault();alert('Demo form — connect it to receive bookings by email or WhatsApp.');">
+        <input type="text" placeholder="Your name" required>
+        <input type="tel" placeholder="Phone number" required>
+        <select><option>AC Repair</option><option>AC Installation</option><option>Heating</option><option>Maintenance</option><option>Other</option></select>
+        <textarea rows="3" placeholder="Tell us what's going on..."></textarea>
+        <button class="btn" type="submit">Request service</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Brownsville Heating &amp; Air Conditioning · 636 Central Blvd #4, Brownsville, TX 78520 · <a href="tel:+19565275330">(956) 527-5330</a><br>
+  Demo website preview built by Arif — for demonstration purposes.
+</footer>
+
+<a class="wa" href="https://wa.me/19565275330" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="http://www.w3.org/2000/svg" width="30" height="30"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.3.1.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.6.4 0 .1 0 .9-.4 1.5z" transform="scale(1.1)"/></svg>
+</a>
+</body>
+</html>
