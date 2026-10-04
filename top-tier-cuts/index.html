@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top-Tier Cuts Barbershop | McAllen, TX — Fades, Line-Ups & Walk-Ins</title>
+<meta name="description" content="Top-Tier Cuts Barbershop, McAllen TX. 4.9 stars, 155 Google reviews. Family-friendly shop, walk-ins welcome. 228 N Ware Rd Suite 50. Call (956) 331-6910.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0d0b; --bg2:#151310; --panel:#1b1815; --line:rgba(214,178,94,.16);
+  --gold:#d6b25e; --gold2:#f0d494; --cream:#f4ead8; --mut:#a4988a; --mut2:#6f665a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:'Manrope',system-ui,sans-serif;overflow-x:hidden}
+::selection{background:var(--gold);color:#0e0d0b}
+img{display:block;max-width:100%}
+h1,h2,.display{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;letter-spacing:.02em}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ---------- preloader ---------- */
+#loader{position:fixed;inset:0;background:var(--bg);z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px}
+#loader .mark{font-family:'Bebas Neue';font-size:clamp(2.4rem,7vw,4.6rem);color:var(--cream);overflow:hidden}
+#loader .bar{width:180px;height:1px;background:rgba(214,178,94,.2);position:relative;overflow:hidden}
+#loader .bar i{position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left}
+#loader .pct{font-size:.72rem;letter-spacing:4px;color:var(--mut)}
+
+/* ---------- cursor ---------- */
+.cur,.cur-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:150;border-radius:50%}
+.cur{width:38px;height:38px;border:1px solid rgba(214,178,94,.55);transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s,border-color .25s}
+.cur-dot{width:5px;height:5px;background:var(--gold);transform:translate(-50%,-50%)}
+.cur.hov{width:64px;height:64px;background:rgba(214,178,94,.12);border-color:var(--gold)}
+@media(hover:none){.cur,.cur-dot{display:none}}
+
+/* ---------- nav ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:.4s}
+header.on{background:rgba(14,13,11,.9);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Bebas Neue';font-size:1.35rem;letter-spacing:.06em;color:var(--cream);text-decoration:none;line-height:1}
+.logo em{font-style:normal;color:var(--gold)}
+.nav nav{display:flex;gap:34px}
+.nav nav a{color:var(--mut);text-decoration:none;font-size:.78rem;letter-spacing:2.4px;text-transform:uppercase;font-weight:600;transition:.25s}
+.nav nav a:hover{color:var(--gold2)}
+.nav nav a::after{content:"";display:block;height:1px;width:0;background:var(--gold);transition:.3s;margin-top:4px}
+.nav nav a:hover::after{width:100%}
+@media(max-width:760px){.nav nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;padding:140px 0 90px}
+.hero .bg{position:absolute;inset:-12% 0 0 0;z-index:0}
+.hero .bg img{width:100%;height:120%;object-fit:cover;filter:grayscale(35%) contrast(1.05) brightness(.5)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,13,11,.94) 0%,rgba(14,13,11,.55) 55%,rgba(14,13,11,.75) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 34%)}
+.hero .inner{position:relative;z-index:2;width:100%}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--gold);font-size:.72rem;letter-spacing:4px;text-transform:uppercase;font-weight:700;margin-bottom:26px}
+.kicker::before{content:"";width:44px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(3.4rem,9.5vw,7.6rem);line-height:.94;text-transform:uppercase}
+.hero h1 .line{overflow:hidden;display:block}
+.hero h1 .line span{display:block;transform:translateY(110%)}
+.hero h1 .g{color:var(--gold)}
+.hero .sub{max-width:520px;color:var(--mut);line-height:1.75;margin:28px 0 40px;font-size:1.02rem}
+.cta-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#161310;padding:17px 36px;text-decoration:none;font-weight:800;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;transition:.25s;position:relative;overflow:hidden}
+.btn:hover{background:var(--gold2)}
+.btn.ghost{background:transparent;color:var(--cream);border:1px solid rgba(244,234,216,.28)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold2);background:transparent}
+.hero-facts{display:flex;gap:44px;margin-top:64px;flex-wrap:wrap}
+.fact .n{font-family:'Bebas Neue';font-size:2.5rem;color:var(--cream);line-height:1}
+.fact .n em{color:var(--gold);font-style:normal}
+.fact .l{font-size:.72rem;letter-spacing:2.6px;text-transform:uppercase;color:var(--mut2);margin-top:6px}
+.scrolldn{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:3;color:var(--mut2);font-size:.66rem;letter-spacing:4px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+.scrolldn::after{content:"";width:1px;height:44px;background:linear-gradient(var(--gold),transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- marquee ---------- */
+.marq{background:var(--gold);color:#161310;padding:16px 0;overflow:hidden;white-space:nowrap;position:relative;z-index:4}
+.marq .track{display:inline-flex;gap:0;will-change:transform}
+.marq span{font-family:'Bebas Neue';font-size:1.2rem;letter-spacing:.14em;text-transform:uppercase;padding:0 26px;display:inline-flex;align-items:center;gap:26px}
+.marq i{font-style:normal;font-size:.8em;opacity:.7}
+
+/* ---------- sections ---------- */
+section{padding:110px 0;position:relative}
+.sec-head{margin-bottom:56px}
+.eyebrow{color:var(--gold);font-size:.72rem;letter-spacing:4px;text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+.sec-head h2{font-size:clamp(2.3rem,5.5vw,4rem);line-height:1.02;text-transform:uppercase;margin-top:14px}
+.sec-head p{color:var(--mut);max-width:560px;line-height:1.75;margin-top:16px}
+.rev{opacity:0;transform:translateY(46px)}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--bg2);padding:44px 34px;position:relative;transition:background .35s;overflow:hidden}
+.svc:hover{background:var(--panel)}
+.svc .num{font-family:'Bebas Neue';color:rgba(214,178,94,.34);font-size:1rem;letter-spacing:2px}
+.svc h3{font-family:'Bebas Neue';font-size:1.7rem;letter-spacing:.04em;text-transform:uppercase;margin:16px 0 10px;color:var(--cream)}
+.svc p{color:var(--mut);font-size:.9rem;line-height:1.7}
+.svc .go{display:inline-block;margin-top:20px;color:var(--gold);text-decoration:none;font-size:.74rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;transition:.25s}
+.svc .go:hover{letter-spacing:5px;color:var(--gold2)}
+.svc::after{content:"";position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:.45s}
+.svc:hover::after{width:100%}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:820px){.gal{grid-template-columns:1fr 1fr}}
+.shot{position:relative;overflow:hidden;min-height:300px}
+.shot.tall{grid-row:span 2;min-height:640px}
+@media(max-width:820px){.shot.tall{grid-row:auto;min-height:300px}}
+.shot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .5s;filter:grayscale(25%)}
+.shot:hover img{transform:scale(1.07);filter:grayscale(0)}
+.shot::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,13,11,.85) 0%,transparent 45%)}
+.shot .cap{position:absolute;bottom:18px;left:20px;z-index:2;font-family:'Bebas Neue';font-size:1.25rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cream)}
+.shot .cap small{display:block;font-family:'Manrope';font-size:.68rem;letter-spacing:3px;color:var(--gold2);margin-bottom:4px}
+
+/* reviews */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.qt{border:1px solid var(--line);background:var(--bg2);padding:38px 32px;position:relative}
+.qt::before{content:"“";font-family:'Bebas Neue';font-size:4rem;color:var(--gold);line-height:.6;display:block;margin-bottom:18px}
+.qt p{color:var(--cream);line-height:1.8;font-size:.95rem;opacity:.92}
+.qt .who{margin-top:22px;font-size:.74rem;letter-spacing:2.6px;text-transform:uppercase;color:var(--mut2)}
+.qt .who b{color:var(--gold2);font-weight:700}
+.starsm{color:var(--gold);letter-spacing:4px;font-size:.85rem;margin-bottom:12px}
+
+/* visit */
+.visit{background:linear-gradient(160deg,#171410,#0e0d0b);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.vwrap{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+@media(max-width:880px){.vwrap{grid-template-columns:1fr}}
+.vlist{margin-top:34px;display:grid;gap:0}
+.vrow{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.vrow span:first-child{color:var(--mut);letter-spacing:1px;text-transform:uppercase;font-size:.74rem;padding-top:3px}
+.vrow a{color:var(--gold2);text-decoration:none}
+.vrow a:hover{color:var(--gold)}
+.map{position:relative;border:1px solid var(--line);min-height:420px;background:radial-gradient(circle at 30% 20%,rgba(214,178,94,.12),transparent 55%),var(--bg2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.map .pin{width:14px;height:14px;background:var(--gold);border-radius:50%;position:relative}
+.map .pin::after{content:"";position:absolute;inset:-9px;border:1px solid var(--gold);border-radius:50%;animation:ping 1.8s infinite}
+@keyframes ping{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.8);opacity:0}}
+.map .addr{position:absolute;bottom:26px;left:26px;font-size:.82rem;color:var(--mut);letter-spacing:1px}
+
+/* final cta */
+.final{text-align:center;padding:130px 0}
+.final h2{font-size:clamp(2.8rem,7vw,5.4rem);text-transform:uppercase;line-height:.98}
+.final h2 .g{color:var(--gold)}
+.final p{color:var(--mut);margin:24px auto 40px;max-width:460px;line-height:1.8}
+
+footer{border-top:1px solid var(--line);padding:44px 0;font-size:.78rem;color:var(--mut2);letter-spacing:.6px}
+footer .fwrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{color:var(--mut);text-decoration:none}
+footer a:hover{color:var(--gold2)}
+.demonote{opacity:.75}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="mark"><span id="ldname">TOP-TIER CUTS</span></div>
+  <div class="bar"><i id="ldbar"></i></div>
+  <div class="pct" id="ldpct">0%</div>
+</div>
+
+<div class="cur"></div><div class="cur-dot"></div>
+
+<header id="hdr">
+  <div class="container nav">
+    <a class="logo" href="#top">TOP-TIER <em>CUTS</em></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#gallery">The Work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+      <a href="#book" style="color:var(--gold2)">Book</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="bg"><img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=1800&q=80&auto=format&fit=crop" alt="Barber at work"></div>
+  <div class="container inner">
+    <div class="kicker">McAllen, Texas · Est. Shop</div>
+    <h1>
+      <span class="line"><span>Every Cut</span></span>
+      <span class="line"><span class="g">Top-Tier</span></span>
+      <span class="line"><span>Every Time</span></span>
+    </h1>
+    <p class="sub">Precision fades, sharp line-ups and family-friendly chair time — the shop McAllen rates <b style="color:var(--gold2)">4.9 stars</b> across 155 Google reviews. Walk in, walk out sharp.</p>
+    <div class="cta-row">
+      <a class="btn mag" href="tel:+19563316910">Book a Chair →</a>
+      <a class="btn ghost mag" href="#services">See the Menu</a>
+    </div>
+    <div class="hero-facts">
+      <div class="fact"><div class="n">4.9<em>★</em></div><div class="l">Google rating</div></div>
+      <div class="fact"><div class="n">155<em>+</em></div><div class="l">Reviews</div></div>
+      <div class="fact"><div class="n">6</div><div class="l">Days a week</div></div>
+      <div class="fact"><div class="n">Walk<em>-ins</em></div><div class="l">Always welcome</div></div>
+    </div>
+  </div>
+  <div class="scrolldn">Scroll</div>
+</section>
+
+<div class="marq"><div class="track" id="mtrack">
+  <span>Fades <i>✦</i> Line-ups <i>✦</i> Beard sculpting <i>✦</i> Kids cuts <i>✦</i> Walk-ins welcome <i>✦</i> Family friendly <i>✦</i></span>
+  <span>Fades <i>✦</i> Line-ups <i>✦</i> Beard sculpting <i>✦</i> Kids cuts <i>✦</i> Walk-ins welcome <i>✦</i> Family friendly <i>✦</i></span>
+</div></div>
+
+<section id="services">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">The Menu</span>
+      <h2>Craft You Can<br>Count On</h2>
+      <p>Haircuts, tapers and beard work finished with razor line-ups and styling. Cash or card, no appointment needed.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc rev"><div class="num">01</div><h3>Signature Haircut</h3><p>Consultation, precision cut, razor finish and styling. Tailored to your head shape and hair type.</p><a class="go" href="#book">Get this →</a></div>
+      <div class="svc rev"><div class="num">02</div><h3>Skin Fade</h3><p>Low, mid or high — blended seamless with a crisp razor edge-up that stays sharp for weeks.</p><a class="go" href="#book">Get this →</a></div>
+      <div class="svc rev"><div class="num">03</div><h3>Beard Sculpt</h3><p>Shape, taper and detail work with hot towel and razor lines. Beard game, upgraded.</p><a class="go" href="#book">Get this →</a></div>
+      <div class="svc rev"><div class="num">04</div><h3>Kids Cuts</h3><p>Patient, friendly cuts for the young ones. Parents stay close — first cut memories made here.</p><a class="go" href="#book">Get this →</a></div>
+      <div class="svc rev"><div class="num">05</div><h3>Line-Up & Trim</h3><p>Quick edge-up between cuts to keep your look fresh. In and out, sharp as ever.</p><a class="go" href="#book">Get this →</a></div>
+      <div class="svc rev"><div class="num">06</div><h3>Full Service</h3><p>Cut, fade, beard and hot towel finish — the complete chair-time experience in one visit.</p><a class="go" href="#book">Get this →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">The Work</span>
+      <h2>Sharp Work,<br>Real Chairs</h2>
+      <p>A look inside the shop — where McAllen comes to get right.</p>
+    </div>
+    <div class="gal">
+      <div class="shot tall rev"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=1200&q=80&auto=format&fit=crop" alt="Shop interior"><div class="cap"><small>THE CHAIR</small>Your time, your cut</div></div>
+      <div class="shot rev"><img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=900&q=80&auto=format&fit=crop" alt="Cutting in progress"><div class="cap"><small>THE CRAFT</small>Detail first</div></div>
+      <div class="shot rev"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=900&q=80&auto=format&fit=crop" alt="In the shop"><div class="cap"><small>THE SHOP</small>Family friendly</div></div>
+      <div class="shot rev"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=80&auto=format&fit=crop" alt="Fresh cut"><div class="cap"><small>THE RESULT</small>Walk out sharp</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">Word On The Street</span>
+      <h2>McAllen Keeps<br>Coming Back</h2>
+    </div>
+    <div class="quotes">
+      <div class="qt rev"><div class="starsm">★★★★★</div><p>Best fade in McAllen, hands down. They take their time and the line-up is always perfect. My whole family gets cut here.</p><div class="who"><b>Google Review</b></div></div>
+      <div class="qt rev"><div class="starsm">★★★★★</div><p>Walked in with my son, both left looking brand new. Friendly shop, clean, great vibes — this is our spot now.</p><div class="who"><b>Google Review</b></div></div>
+      <div class="qt rev"><div class="starsm">★★★★★</div><p>Consistent every single visit. I drive across town past other shops just to get cut here. That says it all.</p><div class="who"><b>Google Review</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="container vwrap">
+    <div>
+      <div class="sec-head rev" style="margin-bottom:10px">
+        <span class="eyebrow">Find Us</span>
+        <h2>Pull Up To<br>The Shop</h2>
+      </div>
+      <div class="vlist rev">
+        <div class="vrow"><span>Address</span><b>228 N Ware Rd, Suite 50 · McAllen, TX 78501</b></div>
+        <div class="vrow"><span>Phone</span><a href="tel:+19563316910">(956) 331-6910</a></div>
+        <div class="vrow"><span>Walk-ins</span><b>Welcome all day</b></div>
+        <div class="vrow"><span>Rating</span><b style="color:var(--gold2)">★ 4.9 — 155 Google reviews</b></div>
+      </div>
+      <div style="margin-top:36px"><a class="btn mag" href="tel:+19563316910">Call the Shop →</a></div>
+    </div>
+    <div class="map rev"><div class="pin"></div><div class="addr">228 N Ware Rd, Suite 50<br>McAllen, TX 78501</div></div>
+  </div>
+</section>
+
+<section class="final" id="book">
+  <div class="container">
+    <div class="rev">
+      <h2>Your Next Cut Is<br>One Call <span class="g">Away</span></h2>
+      <p>Walk in or call ahead — either way, you leave top-tier. The chair is waiting.</p>
+      <a class="btn mag" href="tel:+19563316910">Book Your Chair →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container fwrap">
+    <div>© <span id="yr"></span> Top-Tier Cuts Barbershop · McAllen, TX</div>
+    <div><a href="tel:+19563316910">(956) 331-6910</a> · 228 N Ware Rd Suite 50</div>
+    <div class="demonote">Free demo website — designed by Arif</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* loader */
+const ld = gsap.timeline();
+ld.to('#ldbar', {scaleX:1, duration:1.4, ease:'power2.inOut', onUpdate:function(){
+    document.getElementById('ldpct').textContent = Math.round(this.progress()*100)+'%';
+  }})
+  .to('#ldname', {yPercent:-130, duration:.6, ease:'power3.in'}, '+=.15')
+  .to('#loader', {yPercent:-100, duration:.8, ease:'power4.inOut'}, '-=.1')
+  .set('#loader', {display:'none'});
+
+/* hero intro after loader */
+ld.add(()=>{
+  gsap.to('.hero h1 .line span', {y:0, duration:1.1, stagger:.13, ease:'power4.out'});
+  gsap.from('.kicker', {opacity:0, x:-30, duration:.8, ease:'power2.out'});
+  gsap.from('.hero .sub, .hero .cta-row', {opacity:0, y:26, duration:.9, stagger:.15, delay:.5});
+  gsap.from('.hero .fact', {opacity:0, y:24, duration:.8, stagger:.1, delay:.7});
+});
+
+/* parallax hero bg */
+gsap.to('.hero .bg', {yPercent:12, scale:1.04, ease:'none',
+  scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+
+/* nav shrink */
+ScrollTrigger.create({start:60, onEnter:()=>document.getElementById('hdr').classList.add('on'),
+  onLeaveBack:()=>document.getElementById('hdr').classList.remove('on')});
+
+/* marquee */
+const mt = document.getElementById('mtrack');
+gsap.to(mt, {xPercent:-50, duration:18, ease:'none', repeat:-1});
+
+/* scroll reveals */
+gsap.utils.toArray('.rev').forEach(el=>{
+  gsap.to(el, {opacity:1, y:0, duration:.95, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 86%'}});
+});
+
+/* image parallax inside shots */
+gsap.utils.toArray('.shot img').forEach(img=>{
+  gsap.fromTo(img, {yPercent:-8, scale:1.15}, {yPercent:8, ease:'none',
+    scrollTrigger:{trigger:img.closest('.shot'), start:'top bottom', end:'bottom top', scrub:true}});
+});
+
+/* custom cursor */
+const cur=document.querySelector('.cur'), dot=document.querySelector('.cur-dot');
+let cx=0,cy=0,tx=0,ty=0;
+window.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;
+  dot.style.transform=`translate(${tx-2.5}px,${ty-2.5}px)`;});
+gsap.ticker.add(()=>{cx+=(tx-cx)*.14;cy+=(ty-cy)*.14;
+  cur.style.transform=`translate(${cx-19}px,${cy-19}px)`;});
+document.querySelectorAll('a,.svc,.shot').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cur.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>cur.classList.remove('hov'));
+});
+
+/* magnetic buttons */
+document.querySelectorAll('.mag').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    gsap.to(btn,{x:(e.clientX-r.left-r.width/2)*.22, y:(e.clientY-r.top-r.height/2)*.32, duration:.4});
+  });
+  btn.addEventListener('mouseleave',()=>gsap.to(btn,{x:0,y:0,duration:.5,ease:'elastic.out(1,.4)'}));
+});
+</script>
+</body>
+</html>
