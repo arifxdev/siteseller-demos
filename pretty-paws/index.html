@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pretty Paws Salon &amp; Spa | Harlingen, TX — Pet Grooming with 20+ Years of Care</title>
+<meta name="description" content="Pretty Paws Salon & Spa, Harlingen TX. 4.5 stars, 95 reviews. Gentle, experienced pet grooming — 20+ years of hands-on care. 604 S 77 Sunshine Strip. Call (956) 423-7297.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fbf6ef; --cream2:#f4eadb; --ink:#2a2622; --teal:#0d5c56; --teal2:#0f7168;
+  --blush:#e8b4a2; --mut:#7c7167; --line:rgba(42,38,34,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Nunito Sans',system-ui,sans-serif;overflow-x:hidden}
+::selection{background:var(--teal);color:#fff}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+
+/* loader */
+#loader{position:fixed;inset:0;background:var(--cream);z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+#loader .mark{font-family:'Fraunces';font-size:clamp(2rem,6vw,3.6rem);color:var(--ink);font-weight:400}
+#loader .bar{width:170px;height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+#loader .bar i{display:block;height:100%;background:var(--teal);transform:scaleX(0);transform-origin:left}
+
+/* cursor */
+.cur,.cur-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:150;border-radius:50%}
+.cur{width:36px;height:36px;border:1.5px solid rgba(13,92,86,.5);transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s}
+.cur-dot{width:5px;height:5px;background:var(--teal);transform:translate(-50%,-50%)}
+.cur.hov{width:60px;height:60px;background:rgba(13,92,86,.1)}
+@media(hover:none){.cur,.cur-dot{display:none}}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:.4s}
+header.on{background:rgba(251,246,239,.92);backdrop-filter:blur(14px);padding:12px 0;border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Fraunces';font-size:1.25rem;color:var(--ink);text-decoration:none;line-height:1.1}
+.logo em{font-style:italic;color:var(--teal)}
+.nav nav{display:flex;gap:30px}
+.nav nav a{color:var(--mut);text-decoration:none;font-size:.8rem;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;transition:.25s}
+.nav nav a:hover{color:var(--teal)}
+@media(max-width:760px){.nav nav{display:none}}
+
+/* hero */
+.hero{min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:130px 0 80px;position:relative;overflow:hidden}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto;text-align:center;padding-top:150px}}
+.hero::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(232,180,162,.5),transparent 65%);top:-180px;right:-140px;pointer-events:none}
+.hero::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(13,92,86,.14),transparent 65%);bottom:-120px;left:-120px;pointer-events:none}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--teal);font-size:.74rem;letter-spacing:3.4px;text-transform:uppercase;font-weight:800;margin-bottom:24px}
+.kicker::before{content:"";width:38px;height:1.5px;background:var(--teal)}
+.hero h1{font-size:clamp(2.7rem,6.2vw,4.9rem);line-height:1.04;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--teal)}
+.hero .sub{color:var(--mut);line-height:1.8;margin:26px 0 36px;max-width:480px;font-size:1.05rem}
+@media(max-width:900px){.hero .sub,.kicker,.hero .cta-row{margin-left:auto;margin-right:auto}}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:#fff;padding:17px 34px;text-decoration:none;font-weight:800;font-size:.8rem;letter-spacing:1.8px;text-transform:uppercase;border-radius:999px;transition:.25s;box-shadow:0 12px 30px rgba(13,92,86,.28)}
+.btn:hover{background:var(--teal2);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);box-shadow:none}
+.btn.ghost:hover{border-color:var(--teal);color:var(--teal);background:transparent}
+.hero-facts{display:flex;gap:40px;margin-top:56px;flex-wrap:wrap}
+@media(max-width:900px){.hero-facts{justify-content:center}}
+.fact .n{font-family:'Fraunces';font-size:2.3rem;color:var(--ink)}
+.fact .n em{font-style:italic;color:var(--teal)}
+.fact .l{font-size:.7rem;letter-spacing:2.4px;text-transform:uppercase;color:var(--mut);font-weight:800;margin-top:4px}
+.hero-img{position:relative;border-radius:28px 28px 220px 28px;overflow:hidden;aspect-ratio:4/4.6;max-width:460px;justify-self:end;box-shadow:0 40px 80px rgba(42,38,34,.22)}
+@media(max-width:900px){.hero-img{justify-self:center;margin-top:20px}}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.hero-img .tag{position:absolute;top:22px;left:22px;background:rgba(251,246,239,.92);backdrop-filter:blur(6px);padding:10px 18px;border-radius:999px;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--teal)}
+.badge20{position:absolute;bottom:26px;right:26px;background:var(--teal);color:#fff;border-radius:50%;width:112px;height:112px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 16px 40px rgba(13,92,86,.4)}
+.badge20 b{font-family:'Fraunces';font-size:1.6rem;font-weight:500}
+.badge20 span{font-size:.56rem;letter-spacing:2px;text-transform:uppercase;font-weight:800}
+
+/* marquee */
+.marq{background:var(--ink);color:var(--cream);padding:15px 0;overflow:hidden;white-space:nowrap}
+.marq .track{display:inline-flex;will-change:transform}
+.marq span{font-family:'Fraunces';font-style:italic;font-size:1.1rem;padding:0 30px;display:inline-flex;align-items:center;gap:30px}
+.marq i{font-style:normal;color:var(--blush)}
+
+section{padding:104px 0;position:relative}
+.sec-head{margin-bottom:52px;max-width:640px}
+.eyebrow{color:var(--teal);font-size:.72rem;letter-spacing:3.6px;text-transform:uppercase;font-weight:800;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:30px;height:1.5px;background:var(--teal)}
+.sec-head h2{font-size:clamp(2.1rem,4.8vw,3.4rem);line-height:1.08;margin-top:14px}
+.sec-head h2 em{font-style:italic;color:var(--teal)}
+.sec-head p{color:var(--mut);line-height:1.8;margin-top:16px;font-size:1rem}
+.rev{opacity:0;transform:translateY(44px)}
+
+/* services */
+.alt{background:var(--cream2)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.svc{background:#fff;border-radius:22px;padding:40px 32px;transition:.35s;box-shadow:0 6px 26px rgba(42,38,34,.06)}
+.svc:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(42,38,34,.13)}
+.svc .ic{width:56px;height:56px;border-radius:18px;background:linear-gradient(140deg,var(--teal),var(--teal2));display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:22px}
+.svc h3{font-size:1.35rem;margin-bottom:10px}
+.svc p{color:var(--mut);font-size:.92rem;line-height:1.75}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;counter-reset:st}
+.step{padding:38px 30px 38px 0;position:relative;counter-increment:st}
+.step::before{content:"0" counter(st);font-family:'Fraunces';font-size:2.6rem;color:var(--blush);display:block;margin-bottom:10px}
+.step h3{font-size:1.25rem;margin-bottom:8px}
+.step p{color:var(--mut);font-size:.92rem;line-height:1.75}
+.step:not(:last-child)::after{content:"";position:absolute;top:52px;right:0;left:70%;height:1.5px;background:var(--line)}
+@media(max-width:900px){.step:not(:last-child)::after{display:none}}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:820px){.gal{grid-template-columns:1fr 1fr}}
+.shot{position:relative;overflow:hidden;border-radius:22px;min-height:280px}
+.shot.tall{grid-row:span 2;min-height:600px}
+@media(max-width:820px){.shot.tall{grid-row:auto;min-height:280px}}
+.shot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.shot:hover img{transform:scale(1.06)}
+.shot::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(42,38,34,.55) 0%,transparent 42%)}
+.shot .cap{position:absolute;bottom:18px;left:20px;z-index:2;color:#fff;font-family:'Fraunces';font-size:1.2rem}
+.shot .cap small{display:block;font-family:'Nunito Sans';font-size:.66rem;letter-spacing:2.6px;text-transform:uppercase;font-weight:800;color:var(--blush);margin-bottom:3px}
+
+/* reviews */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.qt{background:#fff;border-radius:22px;padding:38px 32px;box-shadow:0 6px 26px rgba(42,38,34,.06)}
+.starsm{color:#d9a13b;letter-spacing:4px;font-size:.9rem;margin-bottom:14px}
+.qt p{line-height:1.85;font-size:.95rem;color:var(--ink)}
+.qt .who{margin-top:20px;font-size:.72rem;letter-spacing:2.2px;text-transform:uppercase;color:var(--mut);font-weight:800}
+.qt .who b{color:var(--teal)}
+
+/* visit */
+.visit .vwrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:880px){.visit .vwrap{grid-template-columns:1fr}}
+.vrow{display:flex;justify-content:space-between;gap:18px;padding:17px 0;border-bottom:1px5px solid var(--line);border-bottom:1px solid var(--line);font-size:.94rem}
+.vrow span:first-child{color:var(--mut);letter-spacing:1.4px;text-transform:uppercase;font-size:.72rem;font-weight:800;padding-top:4px}
+.vrow a{color:var(--teal);text-decoration:none;font-weight:700}
+.map{position:relative;border-radius:24px;min-height:400px;background:radial-gradient(circle at 60% 25%,rgba(232,180,162,.35),transparent 60%),var(--cream2);display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--line)}
+.map .pin{width:14px;height:14px;background:var(--teal);border-radius:50%;position:relative}
+.map .pin::after{content:"";position:absolute;inset:-9px;border:1.5px solid var(--teal);border-radius:50%;animation:ping 1.8s infinite}
+@keyframes ping{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.9);opacity:0}}
+.map .addr{position:absolute;bottom:24px;left:24px;font-size:.82rem;color:var(--mut);font-weight:700}
+
+/* final */
+.final{text-align:center;background:var(--teal);color:#fff;border-radius:48px;margin:20px auto;max-width:1160px}
+@media(max-width:1200px){.final{border-radius:0;margin:0}}
+.final h2{font-size:clamp(2.4rem,5.6vw,4.2rem);line-height:1.06}
+.final h2 em{font-style:italic;color:var(--blush)}
+.final p{color:rgba(255,255,255,.82);margin:22px auto 38px;max-width:440px;line-height:1.8}
+.final .btn{background:#fff;color:var(--teal);box-shadow:0 14px 34px rgba(0,0,0,.25)}
+.final .btn:hover{background:var(--cream)}
+
+footer{padding:40px 0;font-size:.8rem;color:var(--mut)}
+.fwrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--teal);text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="mark"><span id="ldname">Pretty Paws</span></div>
+  <div class="bar"><i id="ldbar"></i></div>
+</div>
+
+<div class="cur"></div><div class="cur-dot"></div>
+
+<header id="hdr">
+  <div class="container nav">
+    <a class="logo" href="#top">Pretty <em>Paws</em> Salon &amp; Spa</a>
+    <nav>
+      <a href="#services">Grooming</a>
+      <a href="#process">How It Works</a>
+      <a href="#gallery">The Crew</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#book" style="color:var(--teal)">Book</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container" style="position:relative;z-index:2">
+<section class="hero" id="top">
+  <div>
+    <div class="kicker">Harlingen, Texas</div>
+    <h1>Grooming that feels<br>like a <em>spa day</em><br>for your best friend</h1>
+    <p class="sub">Gentle, unhurried grooming from a team with <b style="color:var(--teal)">20+ years of hands-on experience</b>. Every coat, every breed, treated like family.</p>
+    <div class="cta-row">
+      <a class="btn mag" href="tel:+19564237297">Book a Spa Day →</a>
+      <a class="btn ghost mag" href="#services">Our Services</a>
+    </div>
+    <div class="hero-facts">
+      <div class="fact"><div class="n">20<em>+</em></div><div class="l">Years of care</div></div>
+      <div class="fact"><div class="n">4.5<em>★</em></div><div class="l">95 Google reviews</div></div>
+      <div class="fact"><div class="n">All</div><div class="l">Breeds &amp; sizes</div></div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&q=80&auto=format&fit=crop" alt="Freshly groomed dog">
+    <div class="tag">Fresh from the spa</div>
+    <div class="badge20"><b>20+</b><span>Years Care</span></div>
+  </div>
+</section>
+</div>
+
+<div class="marq"><div class="track" id="mtrack">
+  <span>Baths <i>✿</i> Haircuts <i>✿</i> Nail trims <i>✿</i> De-shedding <i>✿</i> Gentle handling <i>✿</i> All breeds welcome <i>✿</i></span>
+  <span>Baths <i>✿</i> Haircuts <i>✿</i> Nail trims <i>✿</i> De-shedding <i>✿</i> Gentle handling <i>✿</i> All breeds welcome <i>✿</i></span>
+</div></div>
+
+<section id="services">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">The Menu</span>
+      <h2>Grooming, done with <em>patience</em></h2>
+      <p>Every service is unhurried and adapted to your pet's coat, age and temperament. Anxious pets are our specialty.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc rev"><div class="ic">🛁</div><h3>Full Groom</h3><p>Bath, haircut, blow-dry, nail trim and ear cleaning — the complete spa package, tailored to breed standards or your own style.</p></div>
+      <div class="svc rev"><div class="ic">🫧</div><h3>Bath &amp; Brush</h3><p>Deep-clean bath with quality shampoo and conditioner, full blow-dry and brush-out. Coats come home soft and shining.</p></div>
+      <div class="svc rev"><div class="ic">✂️</div><h3>Breed Cuts</h3><p>From poodles to terriers — breed-standard trims or a custom look you love, cut with 20 years of practiced hands.</p></div>
+      <div class="svc rev"><div class="ic">🐾</div><h3>Nail &amp; Paw Care</h3><p>Nail trims, paw tidy-ups and pad care, done gently. Small service, big relief for you and your floors.</p></div>
+      <div class="svc rev"><div class="ic">🌬️</div><h3>De-shedding</h3><p>Undercoat removal that dramatically cuts shedding at home. Recommended before Harlingen's coat-blowing seasons.</p></div>
+      <div class="svc rev"><div class="ic">❤️</div><h3>Senior &amp; Anxious Pets</h3><p>Extra time, quiet handling and breaks as needed. Nervous first-timers leave with their tails high.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="process">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">The Experience</span>
+      <h2>How a spa day <em>goes</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step rev"><h3>Meet &amp; greet</h3><p>We learn your pet's personality, coat and quirks, and agree the look you want before anything else.</p></div>
+      <div class="step rev"><h3>Gentle bath</h3><p>Warm water, quality products, calming touch. No rushing, ever.</p></div>
+      <div class="step rev"><h3>The cut</h3><p>Scissor and clipper work with 20+ years of technique behind every stroke.</p></div>
+      <div class="step rev"><h3>Go home glowing</h3><p>Finishing spritz, bandana and a happy tail-wag out the door.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">The Crew</span>
+      <h2>Faces we've <em>freshened</em> up</h2>
+    </div>
+    <div class="gal">
+      <div class="shot tall rev"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1000&q=80&auto=format&fit=crop" alt="Happy dogs"><div class="cap"><small>PLAYFUL</small>Coats &amp; cuddles</div></div>
+      <div class="shot rev"><img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=900&q=80&auto=format&fit=crop" alt="Groomed pup"><div class="cap"><small>FRESH</small>Spa-day results</div></div>
+      <div class="shot rev"><img src="https://images.unsplash.com/photo-1494178270175-e96de2971df9?w=900&q=80&auto=format&fit=crop" alt="Cat"><div class="cap"><small>CATS TOO</small>All friends welcome</div></div>
+      <div class="shot rev"><img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=900&q=80&auto=format&fit=crop" alt="Dog outdoors"><div class="cap"><small>HAPPY</small>Ready for pickup</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="reviews">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">Happy Humans</span>
+      <h2>What Harlingen <em>says</em></h2>
+    </div>
+    <div class="quotes">
+      <div class="qt rev"><div class="starsm">★★★★★</div><p>My rescue is terrified of everything, but they take their time with her every single visit. She comes home beautiful and happy. True animal lovers here.</p><div class="who"><b>Google Review</b></div></div>
+      <div class="qt rev"><div class="starsm">★★★★★</div><p>Twenty years of experience shows. My poodle's cut is the best she's ever had, and I've tried groomers across the whole Valley.</p><div class="who"><b>Google Review</b></div></div>
+      <div class="qt rev"><div class="starsm">★★★★★</div><p>Fair prices, gentle hands, and they always fit us in. My dogs literally pull me toward the door when we arrive. That says everything.</p><div class="who"><b>Google Review</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="container vwrap">
+    <div>
+      <div class="sec-head rev" style="margin-bottom:8px">
+        <span class="eyebrow">Find Us</span>
+        <h2>Come say <em>hello</em></h2>
+      </div>
+      <div class="rev">
+        <div class="vrow"><span>Address</span><b>604 S 77 Sunshine Strip, Suite A1 · Harlingen, TX 78550</b></div>
+        <div class="vrow"><span>Phone</span><a href="tel:+19564237297">(956) 423-7297</a></div>
+        <div class="vrow"><span>Experience</span><b>20+ years of grooming care</b></div>
+        <div class="vrow"><span>Rating</span><b style="color:var(--teal)">★ 4.5 — 95 Google reviews</b></div>
+      </div>
+      <div style="margin-top:34px"><a class="btn mag" href="tel:+19564237297">Call to Book →</a></div>
+    </div>
+    <div class="map rev"><div class="pin"></div><div class="addr">604 S 77 Sunshine Strip, Suite A1<br>Harlingen, TX 78550</div></div>
+  </div>
+</section>
+
+<section style="padding:10px 24px 104px">
+<div class="container final rev" id="book" style="padding:90px 24px">
+  <h2>Your best friend deserves<br>a <em>spa day</em></h2>
+  <p>Book a groom and see the Pretty Paws difference — gentle, experienced, and genuinely caring.</p>
+  <a class="btn mag" href="tel:+19564237297">Book Your Pet's Spa Day →</a>
+</div>
+</section>
+
+<footer>
+  <div class="container fwrap">
+    <div>© <span id="yr"></span> Pretty Paws Salon &amp; Spa · Harlingen, TX</div>
+    <div><a href="tel:+19564237297">(956) 423-7297</a> · 604 S 77 Sunshine Strip, Suite A1</div>
+    <div style="opacity:.75">Free demo website — designed by Arif</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const ld = gsap.timeline();
+ld.to('#ldbar', {scaleX:1, duration:1.3, ease:'power2.inOut'})
+  .to('#ldname', {yPercent:-130, duration:.55, ease:'power3.in'}, '+=.15')
+  .to('#loader', {yPercent:-100, duration:.8, ease:'power4.inOut'}, '-=.1')
+  .set('#loader', {display:'none'});
+
+ld.add(()=>{
+  gsap.from('.hero .kicker', {opacity:0, x:-30, duration:.7});
+  gsap.from('.hero h1', {opacity:0, y:60, duration:1, ease:'power3.out', delay:.05});
+  gsap.from('.hero .sub, .hero .cta-row', {opacity:0, y:26, duration:.8, stagger:.15, delay:.4});
+  gsap.from('.hero .fact', {opacity:0, y:22, duration:.7, stagger:.1, delay:.55});
+  gsap.from('.hero-img', {opacity:0, scale:.94, x:60, duration:1.1, ease:'power3.out', delay:.15});
+  gsap.from('.badge20', {scale:0, rotate:-30, duration:.7, ease:'back.out(2)', delay:.8});
+});
+
+gsap.to('.hero-img img', {scale:1.08, yPercent:6, ease:'none',
+  scrollTrigger:{trigger:'.hero-img', start:'top bottom', end:'bottom top', scrub:true}});
+
+ScrollTrigger.create({start:60, onEnter:()=>document.getElementById('hdr').classList.add('on'),
+  onLeaveBack:()=>document.getElementById('hdr').classList.remove('on')});
+
+const mt = document.getElementById('mtrack');
+gsap.to(mt, {xPercent:-50, duration:20, ease:'none', repeat:-1});
+
+gsap.utils.toArray('.rev').forEach(el=>{
+  gsap.to(el, {opacity:1, y:0, duration:.9, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 88%'}});
+});
+gsap.utils.toArray('.shot img').forEach(img=>{
+  gsap.fromTo(img, {yPercent:-6, scale:1.12}, {yPercent:6, ease:'none',
+    scrollTrigger:{trigger:img.closest('.shot'), start:'top bottom', end:'bottom top', scrub:true}});
+});
+
+const cur=document.querySelector('.cur'), dot=document.querySelector('.cur-dot');
+let cx=0,cy=0,tx=0,ty=0;
+window.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;
+  dot.style.transform=`translate(${tx-2.5}px,${ty-2.5}px)`;});
+gsap.ticker.add(()=>{cx+=(tx-cx)*.14;cy+=(ty-cy)*.14;
+  cur.style.transform=`translate(${cx-18}px,${cy-18}px)`;});
+document.querySelectorAll('a,.svc,.shot').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cur.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>cur.classList.remove('hov'));
+});
+document.querySelectorAll('.mag').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    gsap.to(btn,{x:(e.clientX-r.left-r.width/2)*.22, y:(e.clientY-r.top-r.height/2)*.32, duration:.4});
+  });
+  btn.addEventListener('mouseleave',()=>gsap.to(btn,{x:0,y:0,duration:.5,ease:'elastic.out(1,.4)'}));
+});
+</script>
+</body>
+</html>
