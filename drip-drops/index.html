@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drip Drops Photography | Harlingen, TX — High-Impact Sports Portraits</title>
+<meta name="description" content="Drip Drops Photography, Harlingen TX. 5.0 stars. High-impact sports portraits and visuals that stop the scroll. Call (956) 990-8483 to book your session.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0a; --ink2:#121212; --paper:#f2efe9; --red:#ff3d2e; --red2:#ff6a4d;
+  --mut:#9a968f; --mut2:#5f5c56; --line:rgba(242,239,233,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:'Space Grotesk',system-ui,sans-serif;overflow-x:hidden}
+::selection{background:var(--red);color:#fff}
+img{display:block;max-width:100%}
+h1,h2,h3,.disp{font-family:'Archivo Black',Impact,sans-serif;font-weight:400;letter-spacing:-.01em}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+#loader{position:fixed;inset:0;background:var(--ink);z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+#loader .mark{font-family:'Archivo Black';font-size:clamp(2rem,7vw,4.2rem);color:var(--paper)}
+#loader .mark i{font-style:normal;color:var(--red)}
+#loader .bar{width:180px;height:2px;background:var(--line);overflow:hidden}
+#loader .bar i{display:block;height:100%;background:var(--red);transform:scaleX(0);transform-origin:left}
+#loader .pct{font-size:.68rem;letter-spacing:5px;color:var(--mut)}
+
+.cur,.cur-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:150;border-radius:50%}
+.cur{width:40px;height:40px;border:1.5px solid rgba(255,61,46,.6);transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s}
+.cur-dot{width:5px;height:5px;background:var(--red);transform:translate(-50%,-50%)}
+.cur.hov{width:66px;height:66px;background:rgba(255,61,46,.12)}
+@media(hover:none){.cur,.cur-dot{display:none}}
+
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:.4s}
+header.on{background:rgba(10,10,10,.92);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Archivo Black';font-size:1.05rem;color:var(--paper);text-decoration:none;letter-spacing:.02em}
+.logo i{font-style:normal;color:var(--red)}
+.nav nav{display:flex;gap:32px}
+.nav nav a{color:var(--mut);text-decoration:none;font-size:.76rem;letter-spacing:2.6px;text-transform:uppercase;font-weight:600;transition:.25s}
+.nav nav a:hover{color:var(--red2)}
+@media(max-width:760px){.nav nav{display:none}}
+
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;padding:150px 0 100px}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;filter:contrast(1.1) brightness(.42) saturate(1.15)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.92) 0%,rgba(10,10,10,.35) 60%,rgba(10,10,10,.7) 100%),linear-gradient(0deg,var(--ink),transparent 40%)}
+.hero .inner{position:relative;z-index:2;width:100%}
+.kicker{display:inline-flex;align-items:center;gap:12px;color:var(--red2);font-size:.72rem;letter-spacing:4px;text-transform:uppercase;font-weight:700;margin-bottom:26px}
+.kicker::before{content:"";width:44px;height:2px;background:var(--red)}
+.hero h1{font-size:clamp(2.9rem,8.6vw,7rem);line-height:.96;text-transform:uppercase}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:block;transform:translateY(112%)}
+.hero h1 .r{color:var(--red)}
+.hero h1 .out{color:transparent;-webkit-text-stroke:1.5px var(--paper)}
+.hero .sub{max-width:520px;color:var(--mut);line-height:1.75;margin:28px 0 40px;font-size:1.02rem}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;padding:17px 36px;text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;transition:.25s;box-shadow:0 12px 34px rgba(255,61,46,.35)}
+.btn:hover{background:var(--red2);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--paper);border:1.5px solid rgba(242,239,233,.3);box-shadow:none}
+.btn.ghost:hover{border-color:var(--red);color:var(--red2)}
+.hero-facts{display:flex;gap:44px;margin-top:60px;flex-wrap:wrap}
+.fact .n{font-family:'Archivo Black';font-size:2.2rem}
+.fact .n em{color:var(--red);font-style:normal}
+.fact .l{font-size:.68rem;letter-spacing:2.8px;text-transform:uppercase;color:var(--mut2);margin-top:6px}
+
+.marq{background:var(--red);color:#fff;padding:14px 0;overflow:hidden;white-space:nowrap;position:relative;z-index:3}
+.marq .track{display:inline-flex;will-change:transform}
+.marq span{font-family:'Archivo Black';font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;padding:0 28px;display:inline-flex;align-items:center;gap:28px}
+.marq i{font-style:normal;opacity:.65}
+
+section{padding:110px 0;position:relative}
+.sec-head{margin-bottom:56px}
+.eyebrow{color:var(--red2);font-size:.7rem;letter-spacing:4px;text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:32px;height:2px;background:var(--red)}
+.sec-head h2{font-size:clamp(2.2rem,5.4vw,4.2rem);line-height:1;text-transform:uppercase;margin-top:14px}
+.sec-head h2 .r{color:var(--red)}
+.sec-head p{color:var(--mut);max-width:540px;line-height:1.75;margin-top:18px}
+.rev{opacity:0;transform:translateY(46px)}
+
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.work-grid{grid-template-columns:1fr 1fr}}
+.wcard{position:relative;overflow:hidden;min-height:300px}
+.wcard.tall{grid-row:span 2;min-height:640px}
+@media(max-width:820px){.wcard.tall{grid-row:auto;min-height:300px}}
+.wcard img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .4s;filter:grayscale(20%)}
+.wcard:hover img{transform:scale(1.06);filter:grayscale(0)}
+.wcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,10,.88) 0%,transparent 45%)}
+.wcard .cap{position:absolute;bottom:20px;left:22px;z-index:2}
+.wcard .cap .tg{display:inline-block;background:var(--red);color:#fff;font-size:.62rem;letter-spacing:2.6px;text-transform:uppercase;font-weight:700;padding:5px 12px;margin-bottom:10px}
+.wcard .cap h3{font-size:1.15rem;text-transform:uppercase}
+
+.pkg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.pk{border:1px solid var(--line);background:var(--ink2);padding:42px 34px;position:relative;transition:.3s}
+.pk:hover{border-color:rgba(255,61,46,.55);transform:translateY(-5px)}
+.pk.hot{border-color:var(--red);background:linear-gradient(170deg,#1a0f0d,#121212 60%)}
+.pk .lbl{position:absolute;top:-13px;left:28px;background:var(--red);padding:5px 16px;font-size:.62rem;letter-spacing:2.6px;text-transform:uppercase;font-weight:700}
+.pk h3{font-size:1.5rem;text-transform:uppercase;margin-bottom:6px}
+.pk .tagl{color:var(--mut);font-size:.85rem;margin-bottom:24px}
+.pk ul{list-style:none;display:grid;gap:12px;margin-bottom:30px}
+.pk li{font-size:.9rem;color:var(--mut);display:flex;gap:12px;line-height:1.5}
+.pk li::before{content:"→";color:var(--red);font-weight:700}
+.pk .go{display:inline-block;color:var(--paper);text-decoration:none;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--red);padding-bottom:6px;transition:.25s}
+.pk .go:hover{color:var(--red2);letter-spacing:5px}
+
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.qt{border:1px solid var(--line);background:var(--ink2);padding:38px 32px}
+.qt::before{content:"";display:block;width:34px;height:3px;background:var(--red);margin-bottom:20px}
+.qt p{line-height:1.85;font-size:.95rem;color:var(--paper);opacity:.92}
+.qt .who{margin-top:22px;font-size:.7rem;letter-spacing:2.6px;text-transform:uppercase;color:var(--mut2);font-weight:700}
+.qt .who b{color:var(--red2)}
+
+.vwrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+@media(max-width:880px){.vwrap{grid-template-columns:1fr}}
+.vrow{display:flex;justify-content:space-between;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.vrow span:first-child{color:var(--mut2);letter-spacing:2px;text-transform:uppercase;font-size:.7rem;font-weight:700;padding-top:4px}
+.vrow a{color:var(--red2);text-decoration:none;font-weight:600}
+.map{position:relative;border:1px solid var(--line);min-height:400px;background:radial-gradient(circle at 35% 25%,rgba(255,61,46,.13),transparent 55%),var(--ink2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.map .pin{width:14px;height:14px;background:var(--red);border-radius:50%;position:relative}
+.map .pin::after{content:"";position:absolute;inset:-9px;border:1.5px solid var(--red);border-radius:50%;animation:ping 1.8s infinite}
+@keyframes ping{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.9);opacity:0}}
+.map .addr{position:absolute;bottom:24px;left:24px;font-size:.8rem;color:var(--mut);letter-spacing:1px}
+
+.final{text-align:center;padding:130px 0;position:relative;overflow:hidden}
+.final::before{content:"DRIP DROPS";position:absolute;font-family:'Archivo Black';font-size:clamp(4rem,18vw,16rem);color:transparent;-webkit-text-stroke:1px rgba(242,239,233,.07);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
+.final h2{font-size:clamp(2.6rem,7vw,5.2rem);text-transform:uppercase;line-height:1;position:relative}
+.final h2 .r{color:var(--red)}
+.final p{color:var(--mut);margin:24px auto 40px;max-width:460px;line-height:1.8;position:relative}
+
+footer{border-top:1px solid var(--line);padding:42px 0;font-size:.76rem;color:var(--mut2);letter-spacing:.6px}
+.fwrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--mut);text-decoration:none}
+footer a:hover{color:var(--red2)}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="mark"><span id="ldname">DRIP<i>DROPS</i></span></div>
+  <div class="bar"><i id="ldbar"></i></div>
+  <div class="pct" id="ldpct">0%</div>
+</div>
+
+<div class="cur"></div><div class="cur-dot"></div>
+
+<header id="hdr">
+  <div class="container nav">
+    <a class="logo" href="#top">DRIP<i>DROPS</i> PHOTOGRAPHY</a>
+    <nav>
+      <a href="#work">Portfolio</a>
+      <a href="#packages">Packages</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Studio</a>
+      <a href="#book" style="color:var(--red2)">Book</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="bg"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1800&q=80&auto=format&fit=crop" alt="Athlete training"></div>
+  <div class="container inner">
+    <div class="kicker">Harlingen · South Texas</div>
+    <h1>
+      <span class="ln"><span>Sports Photos</span></span>
+      <span class="ln"><span class="out">That Stop</span></span>
+      <span class="ln"><span class="r">The Scroll</span></span>
+    </h1>
+    <p class="sub">High-impact sports portraits and visuals for athletes, teams and brands. 5.0-star rated in Harlingen — images that hit as hard as the game.</p>
+    <div class="cta-row">
+      <a class="btn mag" href="tel:+19569908483">Book a Session →</a>
+      <a class="btn ghost mag" href="#work">See the Work</a>
+    </div>
+    <div class="hero-facts">
+      <div class="fact"><div class="n">5.0<em>★</em></div><div class="l">Google rating</div></div>
+      <div class="fact"><div class="n">100<em>%</em></div><div class="l">5-star reviews</div></div>
+      <div class="fact"><div class="n">4K+</div><div class="l">Delivery quality</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marq"><div class="track" id="mtrack">
+  <span>Sports portraits <i>◆</i> Team media days <i>◆</i> Senior nights <i>◆</i> Brand visuals <i>◆</i> Event coverage <i>◆</i></span>
+  <span>Sports portraits <i>◆</i> Team media days <i>◆</i> Senior nights <i>◆</i> Brand visuals <i>◆</i> Event coverage <i>◆</i></span>
+</div></div>
+
+<section id="work">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">Portfolio</span>
+      <h2>The <span class="r">Impact</span> Shots</h2>
+      <p>Every frame is built to make recruiters, followers and family stop mid-scroll.</p>
+    </div>
+    <div class="work-grid">
+      <div class="wcard tall rev"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1000&q=80&auto=format&fit=crop" alt="Training"><div class="cap"><span class="tg">Training</span><h3>Grind Season</h3></div></div>
+      <div class="wcard rev"><img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=900&q=80&auto=format&fit=crop" alt="Court"><div class="cap"><span class="tg">Court</span><h3>Game Day</h3></div></div>
+      <div class="wcard rev"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=900&q=80&auto=format&fit=crop" alt="Team"><div class="cap"><span class="tg">Team</span><h3>Media Day</h3></div></div>
+      <div class="wcard rev"><img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=900&q=80&auto=format&fit=crop" alt="Runner"><div class="cap"><span class="tg">Track</span><h3>Full Sprint</h3></div></div>
+      <div class="wcard rev"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80&auto=format&fit=crop" alt="Athlete"><div class="cap"><span class="tg">Portrait</span><h3>Player Focus</h3></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="packages" style="background:var(--ink2)">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">Book It</span>
+      <h2>Session <span class="r">Packages</span></h2>
+      <p>Every package includes professional editing and fast digital delivery. Custom team and brand rates on request.</p>
+    </div>
+    <div class="pkg">
+      <div class="pk rev"><h3>Single Athlete</h3><div class="tagl">One player, full spotlight</div><ul><li>45-minute session</li><li>2 outfit changes</li><li>15+ edited images</li><li>Online gallery, print-ready</li></ul><a class="go" href="#book">Get a quote →</a></div>
+      <div class="pk hot rev"><span class="lbl">Most booked</span><h3>Team Media Day</h3><div class="tagl">Roster-ready content, one shoot</div><ul><li>Individual portraits</li><li>Team &amp; group combos</li><li>Action-style setups</li><li>Full gallery, share rights</li></ul><a class="go" href="#book">Get a quote →</a></div>
+      <div class="pk rev"><h3>Brand &amp; Event</h3><div class="tagl">Visuals that carry your image</div><ul><li>On-location coverage</li><li>Social-ready crops</li><li>Fast turnaround</li><li>Commercial usage rights</li></ul><a class="go" href="#book">Get a quote →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">5.0 Stars</span>
+      <h2>Clients <span class="r">Talk</span></h2>
+    </div>
+    <div class="quotes">
+      <div class="qt rev"><p>The photos looked like they came out of a magazine. My son's teammates' parents were all asking who shot them.</p><div class="who"><b>Google Review</b></div></div>
+      <div class="qt rev"><p>Professional, fast, and the edits were incredible. Worth every penny — these pictures will last us a lifetime.</p><div class="who"><b>Google Review</b></div></div>
+      <div class="qt rev"><p>Booked a media day for our whole team. Organized, creative, and the turnaround was faster than promised.</p><div class="who"><b>Google Review</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" style="background:var(--ink2)">
+  <div class="container vwrap">
+    <div>
+      <div class="sec-head rev" style="margin-bottom:6px">
+        <span class="eyebrow">The Studio</span>
+        <h2>Based In <span class="r">Harlingen</span></h2>
+      </div>
+      <div class="rev">
+        <div class="vrow"><span>Location</span><b>Harlingen, TX · serving the whole RGV</b></div>
+        <div class="vrow"><span>Phone</span><a href="tel:+19569908483">(956) 990-8483</a></div>
+        <div class="vrow"><span>Specialty</span><b>High-impact sports portraits &amp; visuals</b></div>
+        <div class="vrow"><span>Rating</span><b style="color:var(--red2)">★ 5.0 — perfect Google score</b></div>
+      </div>
+      <div style="margin-top:34px"><a class="btn mag" href="tel:+19569908483">Call the Studio →</a></div>
+    </div>
+    <div class="map rev"><div class="pin"></div><div class="addr">Harlingen, TX<br>Serving the Rio Grande Valley</div></div>
+  </div>
+</section>
+
+<section class="final" id="book">
+  <div class="container rev">
+    <h2>Ready For Your<br><span class="r">Close-Up?</span></h2>
+    <p>Seasons end. Frames last forever. Book the session while the moment is still live.</p>
+    <a class="btn mag" href="tel:+19569908483">Book Your Session →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container fwrap">
+    <div>© <span id="yr"></span> Drip Drops Photography · Harlingen, TX</div>
+    <div><a href="tel:+19569908483">(956) 990-8483</a> · Serving the RGV</div>
+    <div style="opacity:.75">Free demo website — designed by Arif</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const ld = gsap.timeline();
+ld.to('#ldbar', {scaleX:1, duration:1.4, ease:'power2.inOut', onUpdate:function(){
+    document.getElementById('ldpct').textContent = Math.round(this.progress()*100)+'%';
+  }})
+  .to('#ldname', {yPercent:-140, duration:.6, ease:'power3.in'}, '+=.15')
+  .to('#loader', {yPercent:-100, duration:.8, ease:'power4.inOut'}, '-=.1')
+  .set('#loader', {display:'none'});
+
+ld.add(()=>{
+  gsap.to('.hero h1 .ln span', {y:0, duration:1.05, stagger:.12, ease:'power4.out'});
+  gsap.from('.kicker', {opacity:0, x:-30, duration:.8});
+  gsap.from('.hero .sub, .hero .cta-row', {opacity:0, y:26, duration:.9, stagger:.15, delay:.45});
+  gsap.from('.hero .fact', {opacity:0, y:22, duration:.8, stagger:.1, delay:.65});
+});
+
+gsap.to('.hero .bg', {yPercent:14, scale:1.05, ease:'none',
+  scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+
+ScrollTrigger.create({start:60, onEnter:()=>document.getElementById('hdr').classList.add('on'),
+  onLeaveBack:()=>document.getElementById('hdr').classList.remove('on')});
+
+const mt = document.getElementById('mtrack');
+gsap.to(mt, {xPercent:-50, duration:16, ease:'none', repeat:-1});
+
+gsap.utils.toArray('.rev').forEach(el=>{
+  gsap.to(el, {opacity:1, y:0, duration:.95, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 87%'}});
+});
+gsap.utils.toArray('.wcard img').forEach(img=>{
+  gsap.fromTo(img, {yPercent:-8, scale:1.16}, {yPercent:8, ease:'none',
+    scrollTrigger:{trigger:img.closest('.wcard'), start:'top bottom', end:'bottom top', scrub:true}});
+});
+
+const cur=document.querySelector('.cur'), dot=document.querySelector('.cur-dot');
+let cx=0,cy=0,tx=0,ty=0;
+window.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;
+  dot.style.transform=`translate(${tx-2.5}px,${ty-2.5}px)`;});
+gsap.ticker.add(()=>{cx+=(tx-cx)*.14;cy+=(ty-cy)*.14;
+  cur.style.transform=`translate(${cx-20}px,${cy-20}px)`;});
+document.querySelectorAll('a,.wcard,.pk').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cur.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>cur.classList.remove('hov'));
+});
+document.querySelectorAll('.mag').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    gsap.to(btn,{x:(e.clientX-r.left-r.width/2)*.22, y:(e.clientY-r.top-r.height/2)*.32, duration:.4});
+  });
+  btn.addEventListener('mouseleave',()=>gsap.to(btn,{x:0,y:0,duration:.5,ease:'elastic.out(1,.4)'}));
+});
+</script>
+</body>
+</html>
