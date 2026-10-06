@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Cutz Barbershop | Brownsville, TX — Precision Cuts, Every Texture</title>
+<meta name="description" content="Diamond Cutz Barbershop, Brownsville TX. 5.0-star rated precision cuts for every hair texture — fades, tapers, kids cuts. 2500 E Price Rd. Call (956) 518-5995.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0b0b0d; --black2:#121216; --gold:#d4af6a; --gold2:#e8cf9e; --white:#f7f4ee;
+  --mut:#9a948a; --mut2:#6b665e; --line:rgba(247,244,238,.11);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Manrope',system-ui,sans-serif;overflow-x:hidden}
+::selection{background:var(--gold);color:var(--black)}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:'Cinzel',Georgia,serif;font-weight:600}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+
+#loader{position:fixed;inset:0;background:var(--black);z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+#loader .mark{font-family:'Cinzel';font-size:clamp(1.9rem,5.5vw,3.1rem);color:var(--white);letter-spacing:.14em;text-transform:uppercase}
+#loader .mark i{font-style:normal;color:var(--gold)}
+#loader .bar{width:180px;height:1px;background:var(--line);overflow:hidden}
+#loader .bar i{display:block;height:100%;background:var(--gold);transform:scaleX(0);transform-origin:left}
+#loader .pct{font-size:.66rem;letter-spacing:5px;color:var(--mut)}
+
+.cur,.cur-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:150;border-radius:50%}
+.cur{width:36px;height:36px;border:1px solid rgba(212,175,106,.55);transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s}
+.cur-dot{width:5px;height:5px;background:var(--gold);transform:translate(-50%,-50%)}
+.cur.hov{width:62px;height:62px;background:rgba(212,175,106,.1)}
+@media(hover:none){.cur,.cur-dot{display:none}}
+
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:.4s}
+header.on{background:rgba(11,11,13,.92);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Cinzel';font-size:1.15rem;color:var(--white);text-decoration:none;letter-spacing:.12em;text-transform:uppercase}
+.logo i{font-style:normal;color:var(--gold)}
+.nav nav{display:flex;gap:32px}
+.nav nav a{color:var(--mut);text-decoration:none;font-size:.74rem;letter-spacing:2.6px;text-transform:uppercase;font-weight:600;transition:.25s}
+.nav nav a:hover{color:var(--gold)}
+@media(max-width:760px){.nav nav{display:none}}
+
+.hero{min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:44px;padding:140px 0 90px;position:relative;overflow:hidden}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto;text-align:center;padding-top:150px}}
+.hero::before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,106,.12),transparent 65%);top:-180px;left:-140px;pointer-events:none}
+.kicker{display:inline-flex;align-items:center;gap:12px;color:var(--gold2);font-size:.72rem;letter-spacing:4px;text-transform:uppercase;font-weight:700;margin-bottom:24px}
+.kicker::before{content:"";width:44px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(2.5rem,6.2vw,4.8rem);line-height:1.05;letter-spacing:.04em}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:block;transform:translateY(112%)}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .sub{color:var(--mut);line-height:1.8;margin:26px 0 38px;max-width:470px;font-size:1.02rem}
+@media(max-width:900px){.hero .sub,.kicker,.hero .cta-row,.hero-facts{margin-left:auto;margin-right:auto}}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--black);padding:16px 36px;text-decoration:none;font-weight:700;font-size:.76rem;letter-spacing:2.6px;text-transform:uppercase;transition:.25s;box-shadow:0 12px 34px rgba(212,175,106,.2)}
+.btn:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(247,244,238,.25);box-shadow:none}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold);transform:none}
+.hero-facts{display:flex;gap:42px;margin-top:58px;flex-wrap:wrap}
+@media(max-width:900px){.hero-facts{justify-content:center}}
+.fact .n{font-family:'Cinzel';font-size:1.7rem;letter-spacing:.06em}
+.fact .n em{font-style:normal;color:var(--gold)}
+.fact .l{font-size:.64rem;letter-spacing:2.8px;text-transform:uppercase;color:var(--mut2);margin-top:6px;font-weight:700}
+.hero-img{position:relative;overflow:hidden;aspect-ratio:4/5;max-width:425px;justify-self:end;border-radius:2px;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+@media(max-width:900px){.hero-img{justify-self:center;margin-top:22px}}
+.hero-img img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) brightness(.85)}
+.hero-img::after{content:"";position:absolute;inset:14px;border:1px solid rgba(212,175,106,.35);pointer-events:none}
+.hero-img .tag{position:absolute;bottom:24px;left:24px;z-index:2;background:rgba(11,11,13,.72);backdrop-filter:blur(6px);padding:10px 18px;font-size:.64rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);font-weight:700}
+
+.marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;overflow:hidden;white-space:nowrap;background:var(--black2)}
+.marq .track{display:inline-flex;will-change:transform}
+.marq span{font-family:'Cinzel';font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);padding:0 30px;display:inline-flex;align-items:center;gap:30px}
+.marq i{font-style:normal;color:var(--mut2)}
+
+section{padding:104px 0;position:relative}
+.sec-head{margin-bottom:54px;max-width:620px}
+.eyebrow{color:var(--gold2);font-size:.7rem;letter-spacing:4px;text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:32px;height:1px;background:var(--gold)}
+.sec-head h2{font-size:clamp(2rem,4.9vw,3.5rem);line-height:1.06;margin-top:16px;letter-spacing:.04em}
+.sec-head h2 em{font-style:normal;color:var(--gold)}
+.sec-head p{color:var(--mut);line-height:1.8;margin-top:16px}
+.rev{opacity:0;transform:translateY(46px)}
+
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--black);padding:44px 32px;transition:background .35s;position:relative}
+.svc:hover{background:var(--black2)}
+.svc .ic{font-family:'Cinzel';color:var(--gold);font-size:1.3rem;letter-spacing:.1em;margin-bottom:20px}
+.svc h3{font-size:1.25rem;letter-spacing:.06em;margin-bottom:12px}
+.svc p{color:var(--mut);font-size:.9rem;line-height:1.75}
+.svc::after{content:"";position:absolute;left:0;top:0;height:1px;width:0;background:var(--gold);transition:.45s}
+.svc:hover::after{width:100%}
+
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:820px){.gal{grid-template-columns:1fr 1fr}}
+.shot{position:relative;overflow:hidden;min-height:280px}
+.shot.tall{grid-row:span 2;min-height:600px}
+@media(max-width:820px){.shot.tall{grid-row:auto;min-height:280px}}
+.shot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .9s cubic-bezier(.2,.7,.2,1);filter:brightness(.82)}
+.shot:hover img{transform:scale(1.06);filter:brightness(1)}
+.shot::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,11,13,.85) 0%,transparent 45%)}
+.shot .cap{position:absolute;bottom:20px;left:22px;z-index:2;font-family:'Cinzel';font-size:1.25rem;letter-spacing:.08em}
+.shot .cap small{display:block;font-family:'Manrope';font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);margin-bottom:5px;font-weight:700}
+
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.qt{border:1px solid var(--line);background:var(--black2);padding:38px 32px}
+.qt::before{content:"";display:block;width:36px;height:2px;background:var(--gold);margin-bottom:20px}
+.qt p{line-height:1.9;font-size:.94rem;color:rgba(247,244,238,.9)}
+.qt .who{margin-top:20px;font-size:.66rem;letter-spacing:2.8px;text-transform:uppercase;color:var(--mut2);font-weight:700}
+.qt .who b{color:var(--gold2)}
+
+.vwrap{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
+@media(max-width:880px){.vwrap{grid-template-columns:1fr}}
+.vrow{display:flex;justify-content:space-between;gap:18px;padding:17px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.vrow span:first-child{color:var(--mut2);letter-spacing:2.4px;text-transform:uppercase;font-size:.62rem;font-weight:700;padding-top:5px}
+.vrow a{color:var(--gold2);text-decoration:none;font-weight:700}
+.map{position:relative;border:1px solid var(--line);min-height:400px;background:radial-gradient(circle at 55% 22%,rgba(212,175,106,.1),transparent 58%),var(--black2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.map::after{content:"";position:absolute;inset:16px;border:1px solid rgba(212,175,106,.2);pointer-events:none}
+.map .pin{width:14px;height:14px;background:var(--gold);border-radius:50%;position:relative}
+.map .pin::after{content:"";position:absolute;inset:-9px;border:1px solid var(--gold);border-radius:50%;animation:ping 1.8s infinite}
+@keyframes ping{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.9);opacity:0}}
+.map .addr{position:absolute;bottom:26px;left:26px;font-size:.78rem;color:var(--mut)}
+
+.final{text-align:center;position:relative;overflow:hidden}
+.final::before{content:"◆";position:absolute;font-size:clamp(10rem,30vw,26rem);color:transparent;-webkit-text-stroke:1px rgba(212,175,106,.06);top:50%;left:50%;transform:translate(-50%,-54%);pointer-events:none}
+.final h2{font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.04;letter-spacing:.04em;position:relative}
+.final h2 em{font-style:normal;color:var(--gold)}
+.final p{color:var(--mut);margin:22px auto 38px;max-width:430px;line-height:1.8;position:relative}
+
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:.74rem;color:var(--mut2);letter-spacing:.4px}
+.fwrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--mut);text-decoration:none;font-weight:700}
+footer a:hover{color:var(--gold2)}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="mark"><span id="ldname">DIAMOND <i>CUTZ</i></span></div>
+  <div class="bar"><i id="ldbar"></i></div>
+  <div class="pct" id="ldpct">0%</div>
+</div>
+
+<div class="cur"></div><div class="cur-dot"></div>
+
+<header id="hdr">
+  <div class="container nav">
+    <a class="logo" href="#top">Diamond <i>Cutz</i></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#gallery">The Shop</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+      <a href="#book" style="color:var(--gold2)">Book</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container" style="position:relative;z-index:2">
+<section class="hero" id="top">
+  <div>
+    <div class="kicker">Brownsville, Texas · ★ 5.0 Rated</div>
+    <h1>
+      <span class="ln"><span>Cut like a</span></span>
+      <span class="ln"><span><em>diamond</em></span></span>
+    </h1>
+    <p class="sub">A 5.0-star barbershop on East Price Road where every texture is a specialty — waves, curls, coils, straight. Precision work in a clean, calm shop.</p>
+    <div class="cta-row">
+      <a class="btn mag" href="tel:+19565185995">Book Your Cut →</a>
+      <a class="btn ghost mag" href="#services">Services</a>
+    </div>
+    <div class="hero-facts">
+      <div class="fact"><div class="n">5.0<em>★</em></div><div class="l">Perfect rating</div></div>
+      <div class="fact"><div class="n">Every <em>texture</em></div><div class="l">Waves, curls, coils</div></div>
+      <div class="fact"><div class="n">Kids <em>welcome</em></div><div class="l">Family-friendly</div></div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=1200&q=80&auto=format&fit=crop" alt="Precision barber at Diamond Cutz">
+    <div class="tag">2500 E Price Rd</div>
+  </div>
+</section>
+</div>
+
+<div class="marq"><div class="track" id="mtrack">
+  <span>Fades <i>◆</i> Tapers <i>◆</i> Curly cuts <i>◆</i> Waves <i>◆</i> Beard work <i>◆</i> Kids cuts <i>◆</i> Line-ups <i>◆</i></span>
+  <span>Fades <i>◆</i> Tapers <i>◆</i> Curly cuts <i>◆</i> Waves <i>◆</i> Beard work <i>◆</i> Kids cuts <i>◆</i> Line-ups <i>◆</i></span>
+</div></div>
+
+<section id="services">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">The Menu</span>
+      <h2>Every texture, <em>every cut</em></h2>
+      <p>Waves, curls, coils or straight — the chair at Diamond Cutz is built for your hair, not the other way around.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc rev"><div class="ic">◆</div><h3>Fades &amp; Tapers</h3><p>Clean skin fades and tapers blended to perfection — sharp from every angle.</p></div>
+      <div class="svc rev"><div class="ic">◆</div><h3>Curly &amp; Textured Cuts</h3><p>A true specialty — curls, coils, waves and mixed-race hair shaped by someone who understands them.</p></div>
+      <div class="svc rev"><div class="ic">◆</div><h3>Line-ups</h3><p>Precise razor edge-ups that keep you looking fresh long after the cut.</p></div>
+      <div class="svc rev"><div class="ic">◆</div><h3>Beard Work</h3><p>Beard sculpting, shape-ups and straight-razor detail work.</p></div>
+      <div class="svc rev"><div class="ic">◆</div><h3>Kids Cuts</h3><p>A patient, kid-friendly chair — parents recommend us for a reason.</p></div>
+      <div class="svc rev"><div class="ic">◆</div><h3>Consultations</h3><p>Not sure what your hair wants? We'll figure it out together before we start.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="background:var(--black2)">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">The Shop</span>
+      <h2>Calm shop, <em>sharp work</em></h2>
+    </div>
+    <div class="gal">
+      <div class="shot tall rev"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=1000&q=80&auto=format&fit=crop" alt="Barbershop interior"><div class="cap"><small>THE SHOP</small>Clean and calm</div></div>
+      <div class="shot rev"><img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=900&q=80&auto=format&fit=crop" alt="Cutting in progress"><div class="cap"><small>THE CRAFT</small>Detail obsessed</div></div>
+      <div class="shot rev"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=80&auto=format&fit=crop" alt="Fresh walk-out"><div class="cap"><small>THE WALK-OUT</small>Confidence, cut in</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <div class="sec-head rev">
+      <span class="eyebrow">★ 5.0 · Perfect Score</span>
+      <h2>Every review, <em>five stars</em></h2>
+    </div>
+    <div class="quotes">
+      <div class="qt rev"><p>"Eduardo is top of the line, professional, and never disappoints. The owner keeps the shop a comfortable, clean environment."</p><div class="who"><b>Google Review</b></div></div>
+      <div class="qt rev"><p>"The best place in Brownsville, especially for textured, curly, or mixed-race hair. My son always looks fresh after a visit."</p><div class="who"><b>Google Review</b></div></div>
+      <div class="qt rev"><p>"Attentive, courteous, very clean — they even had a seat just for my boy. #1 in the Valley for me."</p><div class="who"><b>Google Review</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" style="background:var(--black2)">
+  <div class="container vwrap">
+    <div>
+      <div class="sec-head rev" style="margin-bottom:6px">
+        <span class="eyebrow">Find Us</span>
+        <h2>On East <em>Price Rd</em></h2>
+      </div>
+      <div class="rev">
+        <div class="vrow"><span>Address</span><b>2500 E Price Rd · Brownsville, TX 78521</b></div>
+        <div class="vrow"><span>Phone</span><a href="tel:+19565185995">(956) 518-5995</a></div>
+        <div class="vrow"><span>Hours</span><b>Tue–Fri 10 AM – 6 PM · Sat 10 AM – 4 PM</b></div>
+        <div class="vrow"><span>Closed</span><b>Sunday &amp; Monday</b></div>
+        <div class="vrow"><span>Rating</span><b style="color:var(--gold2)">★ 5.0 on Google</b></div>
+      </div>
+      <div style="margin-top:32px"><a class="btn mag" href="tel:+19565185995">Call to Book →</a></div>
+    </div>
+    <div class="map rev"><div class="pin"></div><div class="addr">2500 E Price Rd<br>Brownsville, TX 78521</div></div>
+  </div>
+</section>
+
+<section class="final" id="book">
+  <div class="container rev">
+    <h2>Sharp is a<br>standard, not a <em>fluke</em></h2>
+    <p>Call ahead or walk in — every cut leaves at five-star level.</p>
+    <a class="btn mag" href="tel:+19565185995">Book Your Chair →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container fwrap">
+    <div>© <span id="yr"></span> Diamond Cutz Barbershop · Brownsville, TX</div>
+    <div><a href="tel:+19565185995">(956) 518-5995</a> · 2500 E Price Rd</div>
+    <div style="opacity:.75">Free demo website — designed by Arif</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+document.getElementById('yr').textContent = new Date().getFullYear();
+const ld = gsap.timeline();
+ld.to('#ldbar', {scaleX:1, duration:1.35, ease:'power2.inOut', onUpdate:function(){
+    document.getElementById('ldpct').textContent = Math.round(this.progress()*100)+'%';
+  }})
+  .to('#ldname', {yPercent:-130, duration:.55, ease:'power3.in'}, '+=.15')
+  .to('#loader', {yPercent:-100, duration:.8, ease:'power4.inOut'}, '-=.1')
+  .set('#loader', {display:'none'});
+ld.add(()=>{
+  gsap.to('.hero h1 .ln span', {y:0, duration:1.05, stagger:.13, ease:'power4.out'});
+  gsap.from('.kicker', {opacity:0, x:-30, duration:.8});
+  gsap.from('.hero .sub, .hero .cta-row', {opacity:0, y:26, duration:.9, stagger:.15, delay:.4});
+  gsap.from('.hero .fact', {opacity:0, y:22, duration:.8, stagger:.1, delay:.55});
+  gsap.from('.hero-img', {opacity:0, scale:.95, x:60, duration:1.05, ease:'power3.out', delay:.15});
+});
+gsap.to('.hero-img img', {scale:1.07, yPercent:6, ease:'none',
+  scrollTrigger:{trigger:'.hero-img', start:'top bottom', end:'bottom top', scrub:true}});
+ScrollTrigger.create({start:60, onEnter:()=>document.getElementById('hdr').classList.add('on'),
+  onLeaveBack:()=>document.getElementById('hdr').classList.remove('on')});
+gsap.to('#mtrack', {xPercent:-50, duration:21, ease:'none', repeat:-1});
+gsap.utils.toArray('.rev').forEach(el=>{
+  gsap.to(el, {opacity:1, y:0, duration:.9, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 88%'}});
+});
+gsap.utils.toArray('.shot img').forEach(img=>{
+  gsap.fromTo(img, {yPercent:-6, scale:1.12}, {yPercent:6, ease:'none',
+    scrollTrigger:{trigger:img.closest('.shot'), start:'top bottom', end:'bottom top', scrub:true}});
+});
+const cur=document.querySelector('.cur'), dot=document.querySelector('.cur-dot');
+let cx=0,cy=0,tx=0,ty=0;
+window.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;
+  dot.style.transform=`translate(${tx-2.5}px,${ty-2.5}px)`;});
+gsap.ticker.add(()=>{cx+=(tx-cx)*.14;cy+=(ty-cy)*.14;
+  cur.style.transform=`translate(${cx-18}px,${cy-18}px)`;});
+document.querySelectorAll('a,.svc,.shot').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cur.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>cur.classList.remove('hov'));
+});
+document.querySelectorAll('.mag').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    gsap.to(btn,{x:(e.clientX-r.left-r.width/2)*.22, y:(e.clientY-r.top-r.height/2)*.32, duration:.4});
+  });
+  btn.addEventListener('mouseleave',()=>gsap.to(btn,{x:0,y:0,duration:.5,ease:'elastic.out(1,.4)'}));
+});
+</script>
+</body>
+</html>
