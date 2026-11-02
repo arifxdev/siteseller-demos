@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIMAR Cinematography + Photography | Brownsville, TX — Wedding &amp; Quinceañera Films</title>
+<meta name="description" content="VIMAR Cinematography + Photography, Brownsville TX. 5.0 stars. Cinematic wedding films and quinceañera photography. Call (956) 442-5170 to book.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0c10; --ink2:#11141a; --paper:#f3f0e9; --amber:#f5a524; --amber2:#ffc453;
+  --mut:#8d9099; --line:rgba(243,240,233,.15);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:'Manrope',system-ui,sans-serif;overflow-x:hidden}
+::selection{background:var(--amber);color:var(--ink)}
+img{display:block;max-width:100%}
+.disp{font-family:'Bebas Neue',Impact,sans-serif;letter-spacing:.04em}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+#loader{position:fixed;inset:0;background:var(--ink);z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+#loader .mark{font-family:'Bebas Neue';font-size:clamp(2.4rem,8vw,4.6rem);color:var(--paper)}
+#loader .mark i{font-style:normal;color:var(--amber)}
+#loader .bar{width:200px;height:2px;background:var(--line);overflow:hidden}
+#loader .bar i{display:block;height:100%;background:var(--amber);transform:scaleX(0);transform-origin:left}
+#loader .pct{font-size:.66rem;letter-spacing:6px;color:var(--mut);text-transform:uppercase}
+
+.cur,.cur-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:150;border-radius:50%}
+.cur{width:36px;height:36px;border:1.5px solid rgba(245,165,36,.6);transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s}
+.cur-dot{width:5px;height:5px;background:var(--amber);transform:translate(-50%,-50%)}
+.cur.hov{width:62px;height:62px;background:rgba(245,165,36,.12)}
+@media(hover:none){.cur,.cur-dot{display:none}}
+
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:.4s}
+header.on{background:rgba(10,12,16,.92);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Bebas Neue';font-size:1.35rem;color:var(--paper);text-decoration:none;letter-spacing:.12em}
+.logo i{font-style:normal;color:var(--amber)}
+nav{display:flex;gap:32px;align-items:center}
+nav a{color:var(--mut);text-decoration:none;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;transition:.25s}
+nav a:hover{color:var(--amber2)}
+@media(max-width:760px){nav a:not(.btn){display:none}}
+
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;background:var(--ink)}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:115%;object-fit:cover;opacity:.55}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,12,16,.92) 8%,rgba(10,12,16,.35) 60%,rgba(10,12,16,.75)),linear-gradient(to top,var(--ink),transparent 55%)}
+.hero .inner{position:relative;z-index:2;padding:130px 0}
+.kicker{display:inline-flex;align-items:center;gap:12px;font-size:.66rem;letter-spacing:5px;text-transform:uppercase;color:var(--amber);margin-bottom:24px}
+.kicker::before{content:'';width:44px;height:1px;background:var(--amber)}
+.hero h1{font-family:'Bebas Neue';font-size:clamp(3.4rem,9vw,7rem);line-height:.96;font-weight:400}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln i{display:block;font-style:normal;transform:translateY(110%)}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero p{max-width:520px;margin:26px 0 36px;color:rgba(243,240,233,.78);font-weight:300;line-height:1.75}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 34px;border-radius:2px;background:var(--amber);color:var(--ink);text-decoration:none;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;transition:background .3s}
+.btn:hover{background:var(--amber2)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--paper)}
+.btn.ghost:hover{border-color:var(--amber);color:var(--amber2)}
+.strip{position:absolute;right:0;top:0;bottom:0;width:14px;display:flex;flex-direction:column;justify-content:space-between;padding:26px 0;z-index:3}
+.strip span{writing-mode:vertical-rl;font-size:.6rem;letter-spacing:4px;color:var(--mut);text-transform:uppercase;margin:auto}
+.hstats{display:flex;gap:46px;margin-top:58px}
+.hstats .n{font-family:'Bebas Neue';font-size:2.1rem;color:var(--amber2)}
+.hstats .l{font-size:.64rem;letter-spacing:2.6px;text-transform:uppercase;color:var(--mut)}
+
+.marq{background:var(--amber);color:var(--ink);padding:14px 0;overflow:hidden;white-space:nowrap}
+.marq .row{display:inline-flex;animation:marq 24s linear infinite}
+.marq span{font-family:'Bebas Neue';font-size:1.5rem;letter-spacing:.12em;padding:0 22px;text-transform:uppercase}
+.marq span b{color:rgba(10,12,16,.45);font-weight:400;padding-right:44px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+section{padding:110px 0}
+.dark2{background:var(--ink2)}
+.shead{margin-bottom:56px;max-width:760px}
+.shead .kick{display:inline-flex;align-items:center;gap:12px;font-size:.64rem;letter-spacing:5px;text-transform:uppercase;color:var(--amber);margin-bottom:16px}
+.shead .kick::before{content:'';width:40px;height:1px;background:var(--amber)}
+.shead h2{font-family:'Bebas Neue';font-size:clamp(2.6rem,5.4vw,4rem);line-height:1;font-weight:400}
+.shead h2 em{font-style:normal;color:var(--amber)}
+.shead p{margin-top:18px;color:var(--mut);font-weight:300;line-height:1.75}
+
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{border:1px solid var(--line);padding:38px 30px;position:relative;background:rgba(243,240,233,.02);transition:border-color .3s, transform .3s}
+.svc:hover{border-color:rgba(245,165,36,.5);transform:translateY(-6px)}
+.svc .no{font-family:'Bebas Neue';color:var(--amber);font-size:1.1rem;margin-bottom:20px;letter-spacing:.1em}
+.svc h3{font-family:'Bebas Neue';font-size:1.55rem;font-weight:400;margin-bottom:12px;letter-spacing:.05em}
+.svc p{font-size:.9rem;font-weight:300;color:var(--mut);line-height:1.7}
+@media(max-width:900px){.svcs{grid-template-columns:1fr}}
+
+.reel{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.reel figure{position:relative;overflow:hidden;aspect-ratio:16/10;background:#000}
+.reel figure:nth-child(2){margin-top:52px}
+.reel figure:nth-child(4){margin-top:52px}
+.reel img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .5s;opacity:.85}
+.reel figure:hover img{transform:scale(1.07);opacity:1}
+.reel figcaption{position:absolute;left:0;bottom:0;right:0;padding:38px 18px 16px;background:linear-gradient(to top,rgba(10,12,16,.85),transparent);display:flex;justify-content:space-between;align-items:end;font-size:.64rem;letter-spacing:3px;text-transform:uppercase;color:var(--paper)}
+.reel figcaption b{color:var(--amber);font-weight:600}
+@media(max-width:900px){.reel{grid-template-columns:1fr 1fr}.reel figure{margin-top:0!important;aspect-ratio:16/11}}
+
+.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.quote{border:1px solid var(--line);padding:38px 32px;position:relative}
+.quote::before{content:'\201C';position:absolute;top:8px;right:20px;font-family:'Bebas Neue';font-size:5rem;color:rgba(245,165,36,.25)}
+.quote .stars{color:var(--amber);letter-spacing:5px;margin-bottom:16px}
+.quote p{font-size:1rem;font-weight:300;line-height:1.7;color:rgba(243,240,233,.9)}
+.quote .who{margin-top:20px;font-family:'Bebas Neue';font-size:.95rem;color:var(--amber2);letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:900px){.quotes{grid-template-columns:1fr}}
+
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.vrow{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.vrow .k{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--mut)}
+.vrow .v{font-family:'Bebas Neue';font-size:1.35rem;text-align:right;letter-spacing:.06em}
+.vrow .v a{color:var(--paper);text-decoration:none;transition:.25s}
+.vrow .v a:hover{color:var(--amber2)}
+.card{position:relative;overflow:hidden}
+.card img{height:470px;width:100%;object-fit:cover}
+.card .tag{position:absolute;left:22px;bottom:22px;background:rgba(10,12,16,.88);color:var(--paper);padding:16px 24px;border-left:3px solid var(--amber);backdrop-filter:blur(6px)}
+.card .tag b{display:block;font-family:'Bebas Neue';font-size:1.35rem;letter-spacing:.08em}
+.card .tag span{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--amber)}
+@media(max-width:900px){.split{grid-template-columns:1fr}.card img{height:300px}}
+
+footer{border-top:1px solid var(--line);padding:34px 0}
+footer .f{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.66rem;letter-spacing:2.4px;text-transform:uppercase;color:var(--mut)}
+footer .f i{font-style:normal;font-family:'Bebas Neue';color:var(--amber);font-size:1.05rem;letter-spacing:.12em}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="mark">VIMAR <i>CINEMA</i></div>
+  <div class="bar"><i></i></div>
+  <div class="pct">Rolling film</div>
+</div>
+<div class="cur"></div><div class="cur-dot"></div>
+
+<header id="hdr">
+  <div class="container nav">
+    <a class="logo" href="#">VIMAR <i>&nbsp;C+P</i></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#reel">The Reel</a>
+      <a href="#voices">Reviews</a>
+      <a href="#book">Book</a>
+      <a href="#book" class="btn magnetic" style="padding:12px 24px">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="bg"><img id="hbg" src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1800&q=80&auto=format&fit=crop" alt="Cinematic film set"></div>
+  <div class="veil"></div>
+  <div class="strip"><span>Now showing</span><span>Brownsville · TX</span><span>Est. RGV</span><span>4K Cinema</span><span>&#9679; Rec</span></div>
+  <div class="container inner">
+    <div class="kicker">Cinematography + Photography · Brownsville, TX</div>
+    <h1>
+      <span class="ln"><i>Your story,</i></span>
+      <span class="ln"><i>shot like a <em>motion picture</em></i></span>
+    </h1>
+    <p>VIMAR turns quinceañeras, weddings and events into cinematic films and photography — drone shots, slow motion, color grading and all. Rated 5.0 stars by the Rio Grande Valley.</p>
+    <a class="btn magnetic" href="#book">Watch &amp; Book VIMAR</a>
+    <div class="hstats">
+      <div><div class="n">5.0&#9733;</div><div class="l">Google Rating</div></div>
+      <div><div class="n">100%</div><div class="l">Recommend on Facebook</div></div>
+      <div><div class="n">4K</div><div class="l">Cinema Cameras</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="marq">
+  <div class="row">
+    <span>Wedding Films <b>&#10022;</b></span><span>Quinceañeras <b>&#10022;</b></span><span>Drone Video <b>&#10022;</b></span><span>Event Coverage <b>&#10022;</b></span><span>Photography <b>&#10022;</b></span>
+    <span>Wedding Films <b>&#10022;</b></span><span>Quinceañeras <b>&#10022;</b></span><span>Drone Video <b>&#10022;</b></span><span>Event Coverage <b>&#10022;</b></span><span>Photography <b>&#10022;</b></span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="shead">
+      <div class="kick">Our services</div>
+      <h2>Every frame is a <em>scene worth keeping</em></h2>
+      <p>Full production mindset: pre-planned shot lists, cinema-grade audio, aerial coverage and a color-graded final cut you&rsquo;ll actually want to watch every anniversary.</p>
+    </div>
+    <div class="svcs">
+      <div class="svc rev"><div class="no">Scene 01</div><h3>Wedding Films</h3><p>Multicam cinematic coverage of the ceremony, first look, and reception — cut into a film with its own soundtrack and soul.</p></div>
+      <div class="svc rev"><div class="no">Scene 02</div><h3>Quinceañera Cinema</h3><p>From the church walk-in to the surprise dance: teasers for social media plus a full-length feature for the family.</p></div>
+      <div class="svc rev"><div class="no">Scene 03</div><h3>Photo + Video</h3><p>Stills and motion with one crew, one vision, one story. Real smiles, zero awkward posing marathons.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark2" id="reel">
+  <div class="container">
+    <div class="shead">
+      <div class="kick">The reel</div>
+      <h2>Frames from <em>past features</em></h2>
+      <p>A few stills pulled from recent Brownsville weddings, quinces and events.</p>
+    </div>
+    <div class="reel">
+      <figure class="rev"><img class="plx" src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=900&q=80&auto=format&fit=crop" alt="First dance"><figcaption>First Dances <b>Feature</b></figcaption></figure>
+      <figure class="rev"><img class="plx" src="https://images.unsplash.com/photo-1493804714600-6edb1cd93080?w=900&q=80&auto=format&fit=crop" alt="Party energy"><figcaption>Hora Loca <b>Teaser</b></figcaption></figure>
+      <figure class="rev"><img class="plx" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=900&q=80&auto=format&fit=crop" alt="Film editing suite"><figcaption>The Edit Suite <b>Behind the scenes</b></figcaption></figure>
+      <figure class="rev"><img class="plx" src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80&auto=format&fit=crop" alt="Bride portrait"><figcaption>Bridal Portraits <b>Stills</b></figcaption></figure>
+      <figure class="rev"><img class="plx" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=80&auto=format&fit=crop" alt="Prime lens"><figcaption>Prime Lenses <b>4K Cinema</b></figcaption></figure>
+      <figure class="rev"><img class="plx" src="https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?w=900&q=80&auto=format&fit=crop" alt="Photographer at work"><figcaption>On Set <b>VIMAR Crew</b></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="voices" style="padding-top:0">
+  <div class="container">
+    <div class="shead">
+      <div class="kick">Voices</div>
+      <h2>What the Valley <em>says about us</em></h2>
+    </div>
+    <div class="quotes">
+      <div class="quote rev"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Our wedding film looked like something from a movie theater. We cried watching it at the reception, and again at home.&rdquo;</p><div class="who">Wedding Couple · Brownsville</div></div>
+      <div class="quote rev"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;They captured my daughter&rsquo;s quinceañera perfectly — the drone shots still give everyone chills. Highly recommended.&rdquo;</p><div class="who">Quinceañera Family · RGV</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark2" id="book">
+  <div class="container split">
+    <div>
+      <div class="shead" style="margin-bottom:24px">
+        <div class="kick">Book VIMAR</div>
+        <h2>Secure your <em>date</em></h2>
+        <p>Quince and wedding dates in the RGV book months ahead. Message or call to check availability and get a same-day quote.</p>
+      </div>
+      <div class="vrow"><div class="k">Phone / WhatsApp</div><div class="v"><a href="tel:+19564425170">(956) 442-5170</a></div></div>
+      <div class="vrow"><div class="k">Email</div><div class="v"><a href="mailto:vimar-photo@hotmail.com">vimar-photo@hotmail.com</a></div></div>
+      <div class="vrow"><div class="k">Studio</div><div class="v">VIMAR Cinematography + Photography</div></div>
+      <div class="vrow"><div class="k">City</div><div class="v">Brownsville, TX</div></div>
+      <div class="vrow"><div class="k">Rating</div><div class="v" style="color:var(--amber2)">5.0 &#9733; on Google</div></div>
+      <a class="btn magnetic" href="tel:+19564425170" style="margin-top:32px">Call (956) 442-5170</a>
+    </div>
+    <div class="card rev">
+      <img src="https://images.unsplash.com/photo-1521967906867-14ec9d64bee8?w=900&q=80&auto=format&fit=crop" alt="Cinema camera">
+      <div class="tag"><span>Now booking</span><b>Quince Season 2027</b></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container f">
+    <div><i>VIMAR C+P</i> — Cinematography + Photography</div>
+    <div>Brownsville, TX · (956) 442-5170</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+var prog = {v:0};
+gsap.to('#loader .bar i', {scaleX:1, duration:1.8, ease:'power2.inOut'});
+gsap.to(prog, {v:100, duration:1.8, ease:'power2.inOut',
+  onUpdate:function(){ document.querySelector('#loader .pct').textContent = Math.round(prog.v) + '% — Rolling film'; },
+  onComplete:function(){
+    gsap.to('#loader', {yPercent:-100, duration:.9, ease:'power3.inOut', onComplete:function(){ document.getElementById('loader').style.display='none'; }});
+    gsap.to('.hero h1 .ln i', {y:0, duration:1.1, ease:'power4.out', stagger:.15, delay:.15});
+    gsap.from('.hero .kicker, .hero p, .hero .btn, .hstats, .strip', {opacity:0, y:26, duration:.9, stagger:.09, ease:'power3.out', delay:.5});
+  }});
+
+gsap.to('#hbg', {yPercent:-14, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+
+ScrollTrigger.create({start:60, onEnter:()=>document.getElementById('hdr').classList.add('on'),
+  onLeaveBack:()=>document.getElementById('hdr').classList.remove('on')});
+
+gsap.utils.toArray('.shead').forEach(function(el){
+  gsap.from(el.children, {opacity:0, y:34, duration:.9, stagger:.12, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 82%'}});
+});
+gsap.utils.toArray('.rev').forEach(function(el){
+  gsap.from(el, {opacity:0, y:44, duration:1, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 88%'}});
+});
+gsap.utils.toArray('.plx').forEach(function(img){
+  gsap.fromTo(img, {yPercent:-8}, {yPercent:8, ease:'none',
+    scrollTrigger:{trigger:img.parentElement, start:'top bottom', end:'bottom top', scrub:true}});
+});
+
+document.querySelectorAll('.magnetic').forEach(function(btn){
+  btn.addEventListener('mousemove', function(e){
+    var r = btn.getBoundingClientRect();
+    btn.style.transform = 'translate(' + ((e.clientX-r.left-r.width/2)*.28) + 'px,' + ((e.clientY-r.top-r.height/2)*.34) + 'px)';
+  });
+  btn.addEventListener('mouseleave', function(){ btn.style.transform = ''; });
+});
+
+var c = document.querySelector('.cur'), d = document.querySelector('.cur-dot');
+if (matchMedia('(hover:hover)').matches){
+  document.addEventListener('mousemove', function(e){
+    gsap.to(c, {x:e.clientX, y:e.clientY, duration:.5, overwrite:'auto'});
+    gsap.set(d, {x:e.clientX, y:e.clientY});
+  });
+  document.querySelectorAll('a, .svc, figure').forEach(function(el){
+    el.addEventListener('mouseenter', ()=>c.classList.add('hov'));
+    el.addEventListener('mouseleave', ()=>c.classList.remove('hov'));
+  });
+}
+</script>
+</body>
+</html>
