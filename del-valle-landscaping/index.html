@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Del Valle Landscaping | Brownsville / RGV — Lawns, Landscaping &amp; Tree Work</title>
+<meta name="description" content="Del Valle Landscaping, Brownsville / Rio Grande Valley, TX. 5.0 stars. Family-owned lawn care, landscaping and cleanups. Call (956) 295-8899 for a free estimate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#17301f; --forest2:#112317; --cream:#f5f2e8; --leaf:#3e8e5a; --leaf2:#6fc489;
+  --mut:#93a296; --mut2:#5c6b60; --line:rgba(245,242,232,.15); --line2:rgba(23,48,31,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--forest);font-family:'Outfit',system-ui,sans-serif;overflow-x:hidden}
+::selection{background:var(--leaf);color:#fff}
+img{display:block;max-width:100%}
+.disp{font-family:'Fraunces',Georgia,serif}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+#loader{position:fixed;inset:0;background:var(--forest2);z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+#loader .mark{font-family:'Fraunces';font-size:clamp(1.8rem,5.4vw,3rem);color:var(--cream)}
+#loader .mark i{font-style:italic;color:var(--leaf2)}
+#loader .bar{width:200px;height:2px;background:var(--line);overflow:hidden}
+#loader .bar i{display:block;height:100%;background:var(--leaf2);transform:scaleX(0);transform-origin:left}
+#loader .pct{font-size:.66rem;letter-spacing:6px;color:var(--mut);text-transform:uppercase}
+
+.cur,.cur-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:150;border-radius:50%}
+.cur{width:38px;height:38px;border:1.5px solid rgba(111,196,137,.6);transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s}
+.cur-dot{width:5px;height:5px;background:var(--leaf2);transform:translate(-50%,-50%)}
+.cur.hov{width:64px;height:64px;background:rgba(111,196,137,.14)}
+@media(hover:none){.cur,.cur-dot{display:none}}
+
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:.4s}
+header.on{background:rgba(17,35,23,.94);backdrop-filter:blur(14px);padding:14px 0}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Fraunces';font-size:1.15rem;color:var(--cream);text-decoration:none;font-weight:700}
+.logo i{font-style:italic;color:var(--leaf2);font-weight:400}
+nav{display:flex;gap:30px;align-items:center}
+nav a{color:var(--cream);text-decoration:none;font-size:.74rem;letter-spacing:2.6px;text-transform:uppercase;font-weight:500;transition:.25s}
+nav a:hover{color:var(--leaf2)}
+@media(max-width:760px){nav a:not(.btn){display:none}}
+
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:var(--forest2)}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:118%;object-fit:cover;opacity:.55}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,35,23,.96) 6%,rgba(17,35,23,.35) 60%,rgba(17,35,23,.6))}
+.hero .inner{position:relative;z-index:2;padding:120px 0 90px;color:var(--cream)}
+.kicker{display:inline-flex;align-items:center;gap:12px;font-size:.66rem;letter-spacing:5px;text-transform:uppercase;color:var(--leaf2);margin-bottom:22px}
+.kicker::before{content:'';width:44px;height:1px;background:var(--leaf2)}
+.hero h1{font-family:'Fraunces';font-size:clamp(2.6rem,7vw,5rem);line-height:1.06;font-weight:700}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln i{display:block;font-style:normal;transform:translateY(110%)}
+.hero h1 em{font-style:italic;color:var(--leaf2);font-weight:400}
+.hero p{max-width:540px;margin:26px 0 34px;font-weight:300;color:rgba(245,242,232,.85);line-height:1.75}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 34px;border-radius:999px;background:var(--leaf2);color:var(--forest2);text-decoration:none;font-size:.72rem;letter-spacing:2.6px;text-transform:uppercase;font-weight:600;transition:background .3s}
+.btn:hover{background:#8fdca8}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--cream)}
+.btn.ghost:hover{border-color:var(--leaf2);color:var(--leaf2)}
+.hstats{display:flex;gap:46px;margin-top:56px}
+.hstats .n{font-family:'Fraunces';font-size:2rem;color:var(--leaf2);font-weight:700}
+.hstats .l{font-size:.64rem;letter-spacing:2.6px;text-transform:uppercase;color:var(--mut)}
+
+.marq{background:var(--leaf);color:var(--cream);padding:16px 0;overflow:hidden;white-space:nowrap;border-top:1px solid rgba(23,48,31,.3);border-bottom:1px solid rgba(23,48,31,.3)}
+.marq .row{display:inline-flex;animation:marq 25s linear infinite}
+.marq span{font-family:'Fraunces';font-size:1.05rem;letter-spacing:.1em;padding:0 24px;text-transform:uppercase}
+.marq span b{color:rgba(17,35,23,.55);font-weight:700;padding-right:48px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+section{padding:110px 0}
+.dark{background:var(--forest2);color:var(--cream)}
+.shead{margin-bottom:56px;max-width:740px}
+.shead .kick{display:inline-flex;align-items:center;gap:12px;font-size:.64rem;letter-spacing:5px;text-transform:uppercase;color:var(--leaf);margin-bottom:16px}
+.shead .kick::before{content:'';width:40px;height:1px;background:var(--leaf)}
+.shead h2{font-family:'Fraunces';font-size:clamp(2rem,4.8vw,3.4rem);line-height:1.1;font-weight:700}
+.shead h2 em{font-style:italic;color:var(--leaf);font-weight:400}
+.shead p{margin-top:16px;color:var(--mut2);font-weight:300;line-height:1.75}
+.dark .shead h2 em{color:var(--leaf2)}
+.dark .shead p{color:var(--mut)}
+
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{background:#fff;border:1px solid var(--line2);padding:40px 30px;position:relative;overflow:hidden;transition:transform .35s,box-shadow .35s}
+.svc:hover{transform:translateY(-8px);box-shadow:0 24px 44px rgba(23,48,31,.12)}
+.svc .ic{width:52px;height:52px;border-radius:50%;background:var(--forest);color:var(--leaf2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:24px}
+.svc h3{font-family:'Fraunces';font-size:1.35rem;font-weight:700;margin-bottom:12px}
+.svc p{font-size:.92rem;font-weight:300;color:var(--mut2);line-height:1.7}
+@media(max-width:900px){.svcs{grid-template-columns:1fr}}
+
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gal figure{position:relative;overflow:hidden;height:320px}
+.gal figure:nth-child(2){margin-top:52px}
+.gal figure:nth-child(5){margin-top:52px}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{position:absolute;left:18px;bottom:16px;color:#fff;font-size:.66rem;letter-spacing:3px;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.gal .sh{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,35,23,.5),transparent 45%)}
+@media(max-width:900px){.gal{grid-template-columns:1fr 1fr}.gal figure{height:230px}.gal figure:nth-child(2),.gal figure:nth-child(5){margin-top:0}}
+
+.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.quote{border:1px solid var(--line);padding:38px 32px;position:relative;background:rgba(245,242,232,.03)}
+.quote .stars{color:var(--leaf2);letter-spacing:5px;margin-bottom:16px}
+.quote p{font-family:'Fraunces';font-style:italic;font-size:1.08rem;line-height:1.65;color:rgba(245,242,232,.92)}
+.quote .who{margin-top:18px;font-size:.64rem;letter-spacing:3px;text-transform:uppercase;color:var(--mut)}
+@media(max-width:900px){.quotes{grid-template-columns:1fr}}
+
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.vrow{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line2)}
+.dark .vrow{border-color:var(--line)}
+.vrow .k{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--mut2)}
+.dark .vrow .k{color:var(--mut)}
+.vrow .v{font-family:'Fraunces';font-size:1.2rem;font-weight:600;text-align:right}
+.vrow .v a{color:inherit;text-decoration:none}
+.dark .vrow .v{color:var(--cream)}
+.dark .vrow .v a{color:var(--cream)}
+.vrow .v a:hover{color:var(--leaf2)}
+.card{position:relative;overflow:hidden;border-radius:10px}
+.card img{height:470px;width:100%;object-fit:cover}
+.card .tag{position:absolute;left:22px;bottom:22px;background:rgba(17,35,23,.9);color:var(--cream);padding:16px 24px;border-left:3px solid var(--leaf2);backdrop-filter:blur(6px)}
+.card .tag b{display:block;font-family:'Fraunces';font-size:1.2rem;font-weight:700}
+.card .tag span{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--leaf2)}
+@media(max-width:900px){.split{grid-template-columns:1fr}.card img{height:300px}}
+
+footer{background:var(--forest2);color:var(--mut);padding:34px 0;border-top:1px solid var(--line)}
+footer .f{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.68rem;letter-spacing:2.4px;text-transform:uppercase}
+footer .f i{font-style:italic;font-family:'Fraunces';color:var(--leaf2);text-transform:none;letter-spacing:.04em;font-size:1rem}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="mark">Del Valle <i>Landscaping</i></div>
+  <div class="bar"><i></i></div>
+  <div class="pct">Growing something good</div>
+</div>
+<div class="cur"></div><div class="cur-dot"></div>
+
+<header id="hdr">
+  <div class="container nav">
+    <a class="logo" href="#">Del Valle <i>Landscaping</i></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#gallery">Our Work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#estimate">Free Estimate</a>
+      <a href="#estimate" class="btn magnetic" style="padding:12px 24px">Get a Free Quote</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="bg"><img id="hbg" src="https://images.unsplash.com/photo-1589923188900-85dae523342b?w=1800&q=80&auto=format&fit=crop" alt="Manicured lawn and garden"></div>
+  <div class="veil"></div>
+  <div class="container inner">
+    <div class="kicker">Family-Owned &middot; Rooted in the Valley &middot; Brownsville, TX</div>
+    <h1>
+      <span class="ln"><i>Your yard,</i></span>
+      <span class="ln"><i>striped &amp; <em>thriving</em></i></span>
+    </h1>
+    <p>&ldquo;We&rsquo;re not chasing perfection. We&rsquo;re committed to getting better every day.&rdquo; Ariana Garcia &amp; Charles Anzalone started Del Valle Landscaping to give RGV homes lawns worth showing off — crisp stripes, healthy palms, honest pricing.</p>
+    <a class="btn magnetic" href="#estimate">Get a Free Estimate</a>
+    <div class="hstats">
+      <div><div class="n">5.0&#9733;</div><div class="l">Average Rating</div></div>
+      <div><div class="n">100%</div><div class="l">Recommend on Facebook</div></div>
+      <div><div class="n">1</div><div class="l">Family-Owned Crew</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="marq">
+  <div class="row">
+    <span>Lawn Maintenance <b>&#9880;</b></span><span>Landscaping Design <b>&#9880;</b></span><span>Tree &amp; Shrub Care <b>&#9880;</b></span><span>Seasonal Cleanups <b>&#9880;</b></span><span>Mulch &amp; Sod <b>&#9880;</b></span><span>Hedge Trimming <b>&#9880;</b></span>
+    <span>Lawn Maintenance <b>&#9880;</b></span><span>Landscaping Design <b>&#9880;</b></span><span>Tree &amp; Shrub Care <b>&#9880;</b></span><span>Seasonal Cleanups <b>&#9880;</b></span><span>Mulch &amp; Sod <b>&#9880;</b></span><span>Hedge Trimming <b>&#9880;</b></span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="shead">
+      <div class="kick">Services</div>
+      <h2>Everything your yard <em>needs</em>, one crew</h2>
+      <p>Regular maintenance, one-time transformations, or full design-and-install — Del Valle handles it with pride, from Brownsville to the beaches.</p>
+    </div>
+    <div class="svcs">
+      <div class="svc rev"><div class="ic">&#127807;</div><h3>Weekly Lawn Care</h3><p>Mowing, edging, blowing and crisp clean lines every visit — the striping your neighbors will notice.</p></div>
+      <div class="svc rev"><div class="ic">&#128728;</div><h3>Landscaping &amp; Design</h3><p>Flower beds, palms, rocks and mulch installed with an eye for what thrives in Valley heat.</p></div>
+      <div class="svc rev"><div class="ic">&#127795;</div><h3>Tree &amp; Cleanups</h3><p>Trimming, storm debris removal and seasonal cleanups that leave your lot picture-perfect.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="gallery">
+  <div class="container">
+    <div class="shead">
+      <div class="kick">Our work</div>
+      <h2>Fresh cuts <em>&amp;</em> clean edges</h2>
+      <p>A sample of the yards we keep immaculate across the Rio Grande Valley.</p>
+    </div>
+    <div class="gal">
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1610375461246-83df859d849d?w=900&q=80&auto=format&fit=crop" alt="Mowing stripes"><figcaption>Signature Striping</figcaption></figure>
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=900&q=80&auto=format&fit=crop" alt="Garden path"><figcaption>Bed Design</figcaption></figure>
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=80&auto=format&fit=crop" alt="Flower field"><figcaption>Valley Color</figcaption></figure>
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1589923188900-85dae523342b?w=900&q=80&auto=format&fit=crop" alt="Manicured lawn"><figcaption>Weekly Clients</figcaption></figure>
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1610375461246-83df859d849d?w=900&q=80&auto=format&fit=crop" alt="Lawn care equipment"><figcaption>The Right Tools</figcaption></figure>
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=900&q=80&auto=format&fit=crop" alt="Outdoor greenery"><figcaption>Thriving Green</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:0">
+  <div class="container">
+    <div class="shead">
+      <div class="kick">Reviews</div>
+      <h2>Neighbors who <em>recommend us</em></h2>
+    </div>
+    <div class="quotes" style="color:var(--cream)">
+      <div class="quote rev" style="border-color:var(--line2)"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Fast, reliable, and the lawn looks better than it ever has. Fair prices and a crew that actually cares.&rdquo;</p><div class="who">Weekly Client · Brownsville</div></div>
+      <div class="quote rev" style="border-color:var(--line2)"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;They cleaned up our whole backyard after the storm in one day. Hard-working family business.&rdquo;</p><div class="who">Cleanup Client · RGV</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="estimate">
+  <div class="container split">
+    <div>
+      <div class="shead" style="margin-bottom:24px">
+        <div class="kick">Free estimate</div>
+        <h2>Let&rsquo;s look at <em>your yard</em></h2>
+        <p>Call or text for a free, no-pressure quote. We answer fast and we show up when we say we will.</p>
+      </div>
+      <div class="vrow" style="border-color:var(--line)"><div class="k">Phone / Text</div><div class="v"><a href="tel:+19562958899">(956) 295-8899</a></div></div>
+      <div class="vrow" style="border-color:var(--line)"><div class="k">Email</div><div class="v"><a href="mailto:delvalle.landscaping1@gmail.com">delvalle.landscaping1@gmail.com</a></div></div>
+      <div class="vrow" style="border-color:var(--line)"><div class="k">Service Area</div><div class="v">Brownsville &amp; the Rio Grande Valley</div></div>
+      <div class="vrow" style="border-color:var(--line)"><div class="k">Owners</div><div class="v">Ariana Garcia &amp; Charles Anzalone</div></div>
+      <div class="vrow" style="border-color:var(--line)"><div class="k">Rating</div><div class="v" style="color:var(--leaf2)">5.0 &#9733; &middot; 100% recommend</div></div>
+      <a class="btn magnetic" href="tel:+19562958899" style="margin-top:32px">Call (956) 295-8899</a>
+    </div>
+    <div class="card rev">
+      <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=900&q=80&auto=format&fit=crop" alt="Landscaped garden">
+      <div class="tag"><span>Now booking</span><b>Fall Clean-Up Season</b></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container f">
+    <div><i>Del Valle Landscaping</i></div>
+    <div>Brownsville &middot; RGV, TX &middot; (956) 295-8899</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+var prog = {v:0};
+gsap.to('#loader .bar i', {scaleX:1, duration:1.7, ease:'power2.inOut'});
+gsap.to(prog, {v:100, duration:1.7, ease:'power2.inOut',
+  onUpdate:function(){ document.querySelector('#loader .pct').textContent = Math.round(prog.v) + '% — Growing something good'; },
+  onComplete:function(){
+    gsap.to('#loader', {yPercent:-100, duration:.9, ease:'power3.inOut', onComplete:function(){ document.getElementById('loader').style.display='none'; }});
+    gsap.to('.hero h1 .ln i', {y:0, duration:1.1, ease:'power4.out', stagger:.14, delay:.15});
+    gsap.from('.hero .kicker, .hero p, .hero .btn, .hstats', {opacity:0, y:26, duration:.9, stagger:.1, ease:'power3.out', delay:.5});
+  }});
+
+gsap.to('#hbg', {yPercent:-14, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+
+ScrollTrigger.create({start:60, onEnter:()=>document.getElementById('hdr').classList.add('on'),
+  onLeaveBack:()=>document.getElementById('hdr').classList.remove('on')});
+
+gsap.utils.toArray('.shead').forEach(function(el){
+  gsap.from(el.children, {opacity:0, y:34, duration:.9, stagger:.12, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 82%'}});
+});
+gsap.utils.toArray('.rev').forEach(function(el){
+  gsap.from(el, {opacity:0, y:44, duration:1, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 88%'}});
+});
+gsap.utils.toArray('.plx').forEach(function(img){
+  gsap.fromTo(img, {yPercent:-8}, {yPercent:8, ease:'none',
+    scrollTrigger:{trigger:img.parentElement, start:'top bottom', end:'bottom top', scrub:true}});
+});
+
+document.querySelectorAll('.magnetic').forEach(function(btn){
+  btn.addEventListener('mousemove', function(e){
+    var r = btn.getBoundingClientRect();
+    btn.style.transform = 'translate(' + ((e.clientX-r.left-r.width/2)*.28) + 'px,' + ((e.clientY-r.top-r.height/2)*.34) + 'px)';
+  });
+  btn.addEventListener('mouseleave', function(){ btn.style.transform = ''; });
+});
+
+var c = document.querySelector('.cur'), d = document.querySelector('.cur-dot');
+if (matchMedia('(hover:hover)').matches){
+  document.addEventListener('mousemove', function(e){
+    gsap.to(c, {x:e.clientX, y:e.clientY, duration:.5, overwrite:'auto'});
+    gsap.set(d, {x:e.clientX, y:e.clientY});
+  });
+  document.querySelectorAll('a, .svc, figure').forEach(function(el){
+    el.addEventListener('mouseenter', ()=>c.classList.add('hov'));
+    el.addEventListener('mouseleave', ()=>c.classList.remove('hov'));
+  });
+}
+</script>
+</body>
+</html>
