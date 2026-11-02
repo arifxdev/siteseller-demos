@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanchez Photography &amp; Video Digital | Brownsville, TX — Quinceañera &amp; Wedding Studio</title>
+<meta name="description" content="Sanchez Photography & Video Digital, Brownsville TX. 4.4 stars. Quinceañeras, weddings and portrait sessions crafted with heart. Call (956) 459-5002 to book.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f1e8; --ink:#171310; --ink2:#221b16; --gold:#c19a4b; --gold2:#e0c48c;
+  --mut:#a99e8d; --line:rgba(23,19,16,.14); --line2:rgba(246,241,232,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Jost',system-ui,sans-serif;overflow-x:hidden}
+::selection{background:var(--gold);color:#fff}
+img{display:block;max-width:100%}
+.disp{font-family:'Playfair Display',Georgia,serif}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* loader */
+#loader{position:fixed;inset:0;background:var(--ink);z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px}
+#loader .mark{font-family:'Playfair Display';font-size:clamp(1.6rem,5vw,3rem);color:var(--paper);letter-spacing:.06em}
+#loader .mark i{font-style:italic;color:var(--gold)}
+#loader .bar{width:200px;height:2px;background:var(--line2);overflow:hidden}
+#loader .bar i{display:block;height:100%;background:var(--gold);transform:scaleX(0);transform-origin:left}
+#loader .pct{font-size:.7rem;letter-spacing:6px;color:var(--mut);text-transform:uppercase}
+
+/* cursor */
+.cur,.cur-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:150;border-radius:50%}
+.cur{width:38px;height:38px;border:1.5px solid rgba(193,154,75,.65);transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s}
+.cur-dot{width:5px;height:5px;background:var(--gold);transform:translate(-50%,-50%)}
+.cur.hov{width:64px;height:64px;background:rgba(193,154,75,.14)}
+@media(hover:none){.cur,.cur-dot{display:none}}
+
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:.4s}
+header.on{background:rgba(23,19,16,.94);backdrop-filter:blur(14px);padding:14px 0}
+header .logo,header nav a{color:var(--paper)}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Playfair Display';font-size:1.1rem;text-decoration:none;letter-spacing:.04em}
+.logo i{font-style:italic;color:var(--gold)}
+nav{display:flex;gap:30px}
+nav a{color:var(--ink);text-decoration:none;font-size:.72rem;letter-spacing:2.8px;text-transform:uppercase;font-weight:500;transition:.25s}
+nav a:hover{color:var(--gold)}
+@media(max-width:760px){nav{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:var(--ink)}
+.hero .bg{position:absolute;inset:0;overflow:hidden}
+.hero .bg img{width:100%;height:118%;object-fit:cover;opacity:.62}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(to top,var(--ink) 4%,rgba(23,19,16,.45) 55%,rgba(23,19,16,.55))}
+.hero .inner{position:relative;z-index:2;padding:120px 0 90px;color:var(--paper)}
+.kicker{display:inline-flex;align-items:center;gap:12px;font-size:.68rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold2);margin-bottom:22px}
+.kicker::before{content:'';width:44px;height:1px;background:var(--gold)}
+.hero h1{font-family:'Playfair Display';font-size:clamp(2.6rem,7.4vw,5.4rem);line-height:1.04;font-weight:700;letter-spacing:-.01em}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln i{display:block;font-style:normal;transform:translateY(110%)}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{max-width:520px;margin:26px 0 34px;font-size:1.02rem;font-weight:300;color:rgba(246,241,232,.82);line-height:1.7}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 34px;border-radius:999px;background:var(--gold);color:var(--ink);text-decoration:none;font-size:.74rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;transition:background .3s}
+.btn:hover{background:var(--gold2)}
+.btn.ghost{background:transparent;border:1px solid var(--line2);color:var(--paper)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold2)}
+.hstats{display:flex;gap:44px;margin-top:56px}
+.hstats .n{font-family:'Playfair Display';font-size:2rem;color:var(--gold2)}
+.hstats .l{font-size:.68rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--mut)}
+
+/* marquee */
+.marq{background:var(--ink);color:var(--paper);padding:18px 0;overflow:hidden;white-space:nowrap;border-top:1px solid var(--line2);border-bottom:1px solid var(--gold)}
+.marq .row{display:inline-flex;gap:0;animation:marq 26s linear infinite}
+.marq span{font-family:'Playfair Display';font-size:1.05rem;letter-spacing:.14em;padding:0 26px;text-transform:uppercase}
+.marq span b{color:var(--gold);font-weight:400;font-style:italic}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+section{padding:110px 0}
+.shead{margin-bottom:56px;max-width:720px}
+.shead .kick{display:inline-flex;align-items:center;gap:12px;font-size:.66rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.shead .kick::before{content:'';width:40px;height:1px;background:var(--gold)}
+.shead h2{font-family:'Playfair Display';font-size:clamp(2rem,4.6vw,3.3rem);line-height:1.12;font-weight:700}
+.shead h2 em{font-style:italic;color:var(--gold)}
+.shead p{margin-top:16px;color:#6e6459;font-weight:300;line-height:1.7}
+.dark{background:var(--ink);color:var(--paper)}
+.dark .shead p{color:var(--mut)}
+.dark .shead h2 em{color:var(--gold2)}
+
+/* services */
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{background:#fff;border:1px solid var(--line);padding:38px 30px;position:relative;overflow:hidden}
+.svc::after{content:'';position:absolute;left:0;top:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:.45s}
+.svc:hover::after{transform:scaleX(1)}
+.svc .no{font-family:'Playfair Display';font-style:italic;color:var(--gold);font-size:.95rem;margin-bottom:18px}
+.svc h3{font-family:'Playfair Display';font-size:1.35rem;font-weight:700;margin-bottom:12px}
+.svc p{font-size:.92rem;font-weight:300;color:#6e6459;line-height:1.65}
+@media(max-width:900px){.svcs{grid-template-columns:1fr}}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gal figure{position:relative;overflow:hidden;height:340px}
+.gal figure:nth-child(2){margin-top:48px}
+.gal figure:nth-child(5){margin-top:48px}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{position:absolute;left:18px;bottom:16px;color:#fff;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.gal .sh{position:absolute;inset:0;background:linear-gradient(to top,rgba(23,19,16,.45),transparent 45%)}
+@media(max-width:900px){.gal{grid-template-columns:1fr 1fr}.gal figure{height:240px}.gal figure:nth-child(2),.gal figure:nth-child(5){margin-top:0}}
+
+/* testimonials */
+.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.quote{border:1px solid var(--line2);padding:36px 30px;position:relative;background:rgba(246,241,232,.03)}
+.quote .stars{color:var(--gold);letter-spacing:4px;margin-bottom:16px;font-size:.85rem}
+.quote p{font-family:'Playfair Display';font-style:italic;font-size:1.06rem;line-height:1.6;color:rgba(246,241,232,.9)}
+.quote .who{margin-top:18px;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--mut)}
+@media(max-width:900px){.quotes{grid-template-columns:1fr}}
+
+/* visit */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.visit .info{display:grid;gap:2px}
+.vrow{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.vrow .k{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:#8a7f70}
+.vrow .v{font-family:'Playfair Display';font-size:1.15rem;font-weight:600;text-align:right}
+.vrow .v a{color:var(--ink);text-decoration:none;transition:.25s}
+.vrow .v a:hover{color:var(--gold)}
+.visit .card{position:relative;overflow:hidden;border-radius:6px}
+.visit .card img{height:460px;width:100%;object-fit:cover}
+.visit .card .tag{position:absolute;left:22px;bottom:22px;background:rgba(23,19,16,.85);color:var(--paper);padding:14px 22px;border-left:2px solid var(--gold);backdrop-filter:blur(6px)}
+.visit .card .tag b{display:block;font-family:'Playfair Display';font-size:1.2rem;font-weight:700}
+.visit .card .tag span{font-size:.66rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold2)}
+@media(max-width:900px){.split{grid-template-columns:1fr}.visit .card img{height:300px}}
+
+footer{background:var(--ink);color:var(--mut);padding:34px 0;border-top:1px solid var(--line2)}
+footer .f{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.72rem;letter-spacing:2px;text-transform:uppercase}
+footer .f i{font-style:italic;color:var(--gold);font-family:'Playfair Display';text-transform:none;letter-spacing:.05em;font-size:.95rem}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="mark">Sanchez <i>Studio</i></div>
+  <div class="bar"><i></i></div>
+  <div class="pct">Loading the moment</div>
+</div>
+<div class="cur"></div><div class="cur-dot"></div>
+
+<header id="hdr">
+  <div class="container nav">
+    <a class="logo" href="#">Sanchez <i>Studio</i></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#love">Kind Words</a>
+      <a href="#visit">Visit</a>
+      <a href="#visit" class="btn magnetic" style="padding:12px 24px">Book a Session</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="bg"><img id="hbg" src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1800&q=80&auto=format&fit=crop" alt="Bride and groom portrait"></div>
+  <div class="veil"></div>
+  <div class="container inner">
+    <div class="kicker">Quinceañera &amp; Wedding Studio · Brownsville, TX</div>
+    <h1>
+      <span class="ln"><i>Every milestone</i></span>
+      <span class="ln"><i>deserves to be <em>remembered</em></i></span>
+      <span class="ln"><i>forever.</i></span>
+    </h1>
+    <p>Sanchez Photography &amp; Video Digital turns quinceañeras, weddings and family portraits into cinematic memories — proudly serving the Rio Grande Valley from our Southmost Rd studio.</p>
+    <a class="btn magnetic" href="#visit">Book Your Session</a>
+    <div class="hstats">
+      <div><div class="n">4.4&#9733;</div><div class="l">Google Rating</div></div>
+      <div><div class="n">30+</div><div class="l">Years in Brownsville</div></div>
+      <div><div class="n">100%</div><div class="l">Heart in Every Frame</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="marq">
+  <div class="row">
+    <span>Quinceañeras <b>·</b></span><span>Weddings <b>·</b></span><span>Maternity <b>·</b></span><span>Studio Portraits <b>·</b></span><span>Video Digital <b>·</b></span><span>Damas &amp; Chambelanes <b>·</b></span>
+    <span>Quinceañeras <b>·</b></span><span>Weddings <b>·</b></span><span>Maternity <b>·</b></span><span>Studio Portraits <b>·</b></span><span>Video Digital <b>·</b></span><span>Damas &amp; Chambelanes <b>·</b></span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="shead">
+      <div class="kick">What we craft</div>
+      <h2>Photography <em>&amp;</em> video, made for your biggest days</h2>
+      <p>From the courtroom walk to the last dance, we choreograph light, motion and emotion into images your family will pass down.</p>
+    </div>
+    <div class="svcs">
+      <div class="svc rev"><div class="no">No. 01</div><h3>Quinceañera Packages</h3><p>Full coverage from makeup to the surprise dance, with dramatic portraits that make her feel like royalty.</p></div>
+      <div class="svc rev"><div class="no">No. 02</div><h3>Weddings</h3><p>Candid storytelling and cinematic video — the vows, the tears, the dance floor — documented unobtrusively.</p></div>
+      <div class="svc rev"><div class="no">No. 03</div><h3>Studio &amp; Family</h3><p>Maternity, newborn, seniors and family sessions in-studio or on location across the RGV.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="gallery">
+  <div class="container">
+    <div class="shead">
+      <div class="kick">Selected work</div>
+      <h2>Moments we&rsquo;ve <em>kept</em></h2>
+      <p>A glimpse of the stories told from behind our lenses.</p>
+    </div>
+    <div class="gal">
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=900&q=80&auto=format&fit=crop" alt="Bridal portrait"><figcaption>Bridal Elegance</figcaption></figure>
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&q=80&auto=format&fit=crop" alt="Wedding celebration"><figcaption>Send-off Nights</figcaption></figure>
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=900&q=80&auto=format&fit=crop" alt="First dance"><figcaption>First Dances</figcaption></figure>
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?w=900&q=80&auto=format&fit=crop" alt="Camera in hand"><figcaption>In the Frame</figcaption></figure>
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=900&q=80&auto=format&fit=crop" alt="Celebration party"><figcaption>La Hora Loca</figcaption></figure>
+      <figure class="rev"><div class="sh"></div><img class="plx" src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80&auto=format&fit=crop" alt="Couple portrait"><figcaption>Timeless Duos</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="love" style="padding-top:0">
+  <div class="container">
+    <div class="shead">
+      <div class="kick">Kind words</div>
+      <h2>Families who <em>trusted</em> us with their day</h2>
+    </div>
+    <div class="quotes" style="color:var(--paper)">
+      <div class="quote rev" style="border-color:var(--line)">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;They treated my daughter&rsquo;s quinceañera like it was their own family. The photos came out like a magazine.&rdquo;</p>
+        <div class="who">Quinceañera Mom · Brownsville</div>
+      </div>
+      <div class="quote rev" style="border-color:var(--line)">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Professional, patient and so creative. Everyone asks who did our wedding photos and video.&rdquo;</p>
+        <div class="who">Wedding Couple · RGV</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="visit" style="padding-top:110px">
+  <div class="container split visit">
+    <div>
+      <div class="shead" style="margin-bottom:28px">
+        <div class="kick">Visit the studio</div>
+        <h2>Let&rsquo;s plan your <em>session</em></h2>
+        <p>Call or message us to reserve your date — Saturdays fill fast during quince season.</p>
+      </div>
+      <div class="info">
+        <div class="vrow" style="border-color:var(--line2)"><div class="k" style="color:var(--mut)">Phone / WhatsApp</div><div class="v"><a href="tel:+19564595002">(956) 459-5002</a></div></div>
+        <div class="vrow" style="border-color:var(--line2)"><div class="k" style="color:var(--mut)">Studio</div><div class="v">Sanchez Photography &amp; Video Digital</div></div>
+        <div class="vrow" style="border-color:var(--line2)"><div class="k" style="color:var(--mut)">Address</div><div class="v">2434 Southmost Rd · Brownsville, TX</div></div>
+        <div class="vrow" style="border-color:var(--line2)"><div class="k" style="color:var(--mut)">Rating</div><div class="v" style="color:var(--gold2)">4.4 &#9733; on Google</div></div>
+      </div>
+      <a class="btn magnetic" href="tel:+19564595002" style="margin-top:30px">Call (956) 459-5002</a>
+    </div>
+    <div class="card rev">
+      <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=80&auto=format&fit=crop" alt="Camera lens">
+      <div class="tag"><span>Now booking</span><b>Quinceañera Season 2027</b></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container f">
+    <div><i>Sanchez Studio</i> — Photography &amp; Video Digital</div>
+    <div>Brownsville, TX · (956) 459-5002</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* loader */
+var prog = {v:0};
+gsap.to('#loader .bar i', {scaleX:1, duration:1.6, ease:'power2.inOut'});
+gsap.to(prog, {v:100, duration:1.6, ease:'power2.inOut',
+  onUpdate:function(){ document.querySelector('#loader .pct').textContent = Math.round(prog.v) + '% — Loading the moment'; },
+  onComplete:function(){
+    gsap.to('#loader', {yPercent:-100, duration:.9, ease:'power3.inOut', onComplete:function(){ document.getElementById('loader').style.display='none'; }});
+    /* hero staggered lines */
+    gsap.to('.hero h1 .ln i', {y:0, duration:1.1, ease:'power4.out', stagger:.14, delay:.15});
+    gsap.from('.hero .kicker, .hero p, .hero .btn, .hstats', {opacity:0, y:26, duration:.9, stagger:.1, ease:'power3.out', delay:.5});
+  }});
+
+/* hero bg parallax */
+gsap.to('#hbg', {yPercent:-14, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+
+/* header */
+ScrollTrigger.create({start:60, onEnter:()=>document.getElementById('hdr').classList.add('on'),
+  onLeaveBack:()=>document.getElementById('hdr').classList.remove('on')});
+
+/* section reveals */
+gsap.utils.toArray('.shead').forEach(function(el){
+  gsap.from(el.children, {opacity:0, y:34, duration:.9, stagger:.12, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 82%'}});
+});
+gsap.utils.toArray('.rev').forEach(function(el){
+  gsap.from(el, {opacity:0, y:44, duration:1, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 88%'}});
+});
+
+/* gallery parallax */
+gsap.utils.toArray('.plx').forEach(function(img){
+  gsap.fromTo(img, {yPercent:-8}, {yPercent:8, ease:'none',
+    scrollTrigger:{trigger:img.parentElement, start:'top bottom', end:'bottom top', scrub:true}});
+});
+
+/* magnetic buttons */
+document.querySelectorAll('.magnetic').forEach(function(btn){
+  btn.addEventListener('mousemove', function(e){
+    var r = btn.getBoundingClientRect();
+    btn.style.transform = 'translate(' + ((e.clientX-r.left-r.width/2)*.28) + 'px,' + ((e.clientY-r.top-r.height/2)*.34) + 'px)';
+  });
+  btn.addEventListener('mouseleave', function(){ btn.style.transform = ''; });
+});
+
+/* custom cursor */
+var c = document.querySelector('.cur'), d = document.querySelector('.cur-dot');
+if (matchMedia('(hover:hover)').matches){
+  document.addEventListener('mousemove', function(e){
+    if(!c.x){ c.x=e.clientX; c.y=e.clientY; gsap.to(c,{x:e.clientX,y:e.clientY,duration:.5}); }
+    gsap.to(c, {x:e.clientX, y:e.clientY, duration:.5, overwrite:'auto'});
+    gsap.set(d, {x:e.clientX, y:e.clientY});
+  });
+  document.querySelectorAll('a, .svc, figure').forEach(function(el){
+    el.addEventListener('mouseenter', ()=>c.classList.add('hov'));
+    el.addEventListener('mouseleave', ()=>c.classList.remove('hov'));
+  });
+}
+</script>
+</body>
+</html>
