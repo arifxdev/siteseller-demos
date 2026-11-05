@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Paws Grooming | Brownsville TX — Stay With Your Pet While We Groom</title>
+<meta name="description" content="Golden Paws Grooming, 1050 MacKintosh Dr Ste 4, Brownsville TX. 3.8 stars from 34 reviews. Grooming where you can stay with your pet the whole time. Call (956) 572-8172.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Karla:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#14110d;--bg2:#1e1913;--ink:#f7efdf;--acc:#d8a13c;--acc2:#f0c473;--hi:#5c4218;--mut:#b5a48c;--line:rgba(247,239,223,.14);--card:#221c15;--onacc:#14110d}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Karla',system-ui,sans-serif;overflow-x:hidden}
+::selection{background:var(--acc);color:var(--onacc)}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+#loader{position:fixed;inset:0;background:var(--bg);z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px}
+#loader .mark{font-family:'Playfair Display';font-size:clamp(1.9rem,5.5vw,3.4rem);color:var(--ink);overflow:hidden;text-align:center;padding:0 20px}
+#loader .mark span{display:inline-block}
+#loader .bar{width:170px;height:2px;background:var(--line);overflow:hidden}
+#loader .bar i{display:block;height:100%;background:var(--acc);transform:scaleX(0);transform-origin:left}
+.cur,.cur-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:150;border-radius:50%}
+.cur{width:36px;height:36px;border:1.5px solid var(--acc);opacity:.65;transition:width .25s,height .25s,background .25s}
+.cur-dot{width:5px;height:5px;background:var(--acc)}
+.cur.hov{width:62px;height:62px;background:var(--acc);opacity:.16}
+@media(hover:none){.cur,.cur-dot{display:none}}
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:.4s}
+header.on{background:var(--bg);backdrop-filter:blur(14px);padding:12px 0;border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Playfair Display';font-size:1.28rem;color:var(--ink);text-decoration:none;line-height:1.1}
+.logo em{font-style:italic;color:var(--acc)}
+.nav nav{display:flex;gap:28px}
+.nav nav a{color:var(--mut);text-decoration:none;font-size:.76rem;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;transition:.25s}
+.nav nav a:hover{color:var(--acc)}
+@media(max-width:800px){.nav nav{display:none}}
+.hero{min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:44px;padding:132px 0 80px;position:relative;overflow:hidden}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto;text-align:center;padding-top:150px}}
+.hero::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,var(--hi),transparent 65%);top:-190px;right:-150px;pointer-events:none;opacity:.6}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--acc);font-size:.73rem;letter-spacing:3.4px;text-transform:uppercase;font-weight:800;margin-bottom:22px}
+.kicker::before{content:"";width:38px;height:1.5px;background:var(--acc)}
+.hero h1{font-size:clamp(2.6rem,6vw,4.7rem);line-height:1.05;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--acc)}
+.hero .sub{color:var(--mut);line-height:1.8;margin:26px 0 34px;max-width:490px;font-size:1.03rem}
+@media(max-width:900px){.hero .sub{margin-left:auto;margin-right:auto}}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+@media(max-width:900px){.cta-row{justify-content:center}}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--acc);color:var(--onacc);padding:17px 33px;text-decoration:none;font-weight:800;font-size:.79rem;letter-spacing:1.7px;text-transform:uppercase;border-radius:999px;transition:background .25s;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.btn:hover{background:var(--acc2)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);box-shadow:none}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc);background:transparent}
+.hero-facts{display:flex;gap:38px;margin-top:52px;flex-wrap:wrap}
+@media(max-width:900px){.hero-facts{justify-content:center}}
+.fact .n{font-family:'Playfair Display';font-size:2.2rem}
+.fact .n em{font-style:italic;color:var(--acc)}
+.fact .l{font-size:.69rem;letter-spacing:2.3px;text-transform:uppercase;color:var(--mut);font-weight:800;margin-top:4px}
+.hero-img{position:relative;border-radius:220px 28px 28px 28px;overflow:hidden;aspect-ratio:4/4.7;max-width:450px;justify-self:end;box-shadow:0 40px 80px rgba(0,0,0,.26)}
+@media(max-width:900px){.hero-img{justify-self:center;margin-top:16px}}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.hero-img .tag{position:absolute;top:20px;left:20px;background:var(--bg);padding:10px 17px;border-radius:999px;font-size:.71rem;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--acc)}
+.badge{position:absolute;bottom:24px;right:24px;background:var(--acc);color:var(--onacc);border-radius:50%;width:112px;height:112px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 16px 40px rgba(0,0,0,.32);padding:8px}
+.badge b{font-family:'Playfair Display';font-size:1.4rem;font-weight:600;line-height:1}
+.badge span{font-size:.55rem;letter-spacing:1.8px;text-transform:uppercase;font-weight:800;margin-top:4px}
+.marq{background:var(--ink);color:var(--bg);padding:15px 0;overflow:hidden;white-space:nowrap}
+.marq .track{display:inline-flex;will-change:transform}
+.marq span{font-family:'Playfair Display';font-style:italic;font-size:1.08rem;padding:0 28px;display:inline-flex;align-items:center;gap:28px}
+.marq i{font-style:normal;color:var(--acc2)}
+section{padding:102px 0;position:relative}
+.sec-head{margin-bottom:50px;max-width:660px}
+.eyebrow{color:var(--acc);font-size:.71rem;letter-spacing:3.5px;text-transform:uppercase;font-weight:800;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:30px;height:1.5px;background:var(--acc)}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.3rem);line-height:1.09;margin-top:13px}
+.sec-head h2 em{font-style:italic;color:var(--acc)}
+.sec-head p{color:var(--mut);line-height:1.8;margin-top:15px}
+.rev{opacity:0;transform:translateY(44px)}
+.alt{background:var(--bg2)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:22px}
+.svc{background:var(--card);border-radius:22px;padding:38px 30px;transition:transform .35s,box-shadow .35s;box-shadow:0 6px 26px rgba(0,0,0,.07);border:1px solid var(--line)}
+.svc:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(0,0,0,.18)}
+.svc .ic{width:56px;height:56px;border-radius:18px;background:var(--acc);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px}
+.svc h3{font-size:1.32rem;margin-bottom:9px}
+.svc p{color:var(--mut);font-size:.91rem;line-height:1.75}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));counter-reset:st}
+.step{padding:36px 28px 36px 0;counter-increment:st}
+.step::before{content:"0" counter(st);font-family:'Playfair Display';font-size:2.5rem;color:var(--acc2);display:block;margin-bottom:10px}
+.step h3{font-size:1.22rem;margin-bottom:8px}
+.step p{color:var(--mut);font-size:.91rem;line-height:1.75}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:820px){.gal{grid-template-columns:1fr 1fr}}
+.shot{position:relative;overflow:hidden;border-radius:22px;min-height:280px}
+.shot.tall{grid-row:span 2;min-height:600px}
+@media(max-width:820px){.shot.tall{grid-row:auto;min-height:280px}}
+.shot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.shot::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.62) 0%,transparent 46%)}
+.shot .cap{position:absolute;bottom:17px;left:19px;z-index:2;color:#fff;font-family:'Playfair Display';font-size:1.18rem}
+.shot .cap small{display:block;font-family:'Karla';font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:800;color:var(--acc2);margin-bottom:3px}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(278px,1fr));gap:22px}
+.qt{background:var(--card);border-radius:22px;padding:36px 30px;box-shadow:0 6px 26px rgba(0,0,0,.07);border:1px solid var(--line)}
+.starsm{color:var(--acc2);letter-spacing:4px;font-size:.9rem;margin-bottom:13px}
+.qt p{line-height:1.85;font-size:.94rem}
+.qt .who{margin-top:19px;font-size:.71rem;letter-spacing:2.1px;text-transform:uppercase;color:var(--mut);font-weight:800}
+.qt .who b{color:var(--acc)}
+.vwrap{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+@media(max-width:880px){.vwrap{grid-template-columns:1fr}}
+.vrow{display:flex;justify-content:space-between;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.vrow span{color:var(--mut);font-size:.71rem;letter-spacing:2.1px;text-transform:uppercase;font-weight:800}
+.vrow b{font-weight:600;text-align:right}
+.vrow a{color:var(--acc);text-decoration:none;font-weight:700}
+.map{aspect-ratio:1/1;border-radius:26px;background:var(--bg2);border:1px solid var(--line);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px}
+.map::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 24px,var(--line) 24px 25px),repeating-linear-gradient(-45deg,transparent 0 24px,var(--line) 24px 25px)}
+.map .pin{position:absolute;top:32%;left:50%;width:26px;height:26px;background:var(--acc);border-radius:50% 50% 50% 0;transform:translate(-50%,-50%) rotate(-45deg);box-shadow:0 8px 20px rgba(0,0,0,.28)}
+.map .addr{position:relative;z-index:2;margin-top:70px;font-family:'Playfair Display';font-size:1.15rem;line-height:1.5}
+.final{background:var(--ink);color:var(--bg);border-radius:34px;text-align:center}
+.final h2{font-size:clamp(2.1rem,4.8vw,3.5rem);line-height:1.11}
+.final h2 em{font-style:italic;color:var(--acc2)}
+.final p{margin:18px auto 30px;max-width:520px;opacity:.82;line-height:1.8}
+footer{padding:38px 0;font-size:.79rem;color:var(--mut)}
+.fwrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--acc);text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+<div id="loader"><div class="mark"><span id="ldname">Golden Paws</span></div><div class="bar"><i id="ldbar"></i></div></div>
+<div class="cur"></div><div class="cur-dot"></div>
+<header id="hdr"><div class="container nav">
+<a class="logo" href="#top">Golden <em>Paws</em></a>
+<nav><a href="#services">Services</a><a href="#process">The Visit</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#visit" style="color:var(--acc)">Visit</a></nav>
+</div></header>
+
+<div class="container" style="position:relative;z-index:2">
+<section class="hero" id="top">
+<div>
+<div class="kicker">Brownsville, Texas</div>
+<h1>Stay with your<br>pet the <em>whole</em><br>time we groom</h1>
+<p class="sub">Golden Paws lets owners stay and watch every groom. No closed doors, no wondering. <b style='color:var(--acc2)'>34 reviews</b> on MacKintosh Drive, and a groomer with years of show-dog experience.</p>
+<div class="cta-row"><a class="btn mag" href="tel:+19565728172">Call (956) 572-8172 &rarr;</a><a class="btn ghost mag" href="#services">Our Services</a></div>
+<div class="hero-facts"><div class="fact"><div class="n">Stay</div><div class="l">With your pet</div></div><div class="fact"><div class="n">Show</div><div class="l">Dog experience</div></div><div class="fact"><div class="n">9am</div><div class="l">Mon to Sat</div></div></div>
+</div>
+<div class="hero-img"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1000&q=80&auto=format&fit=crop" alt="Happy dog being groomed"><div class="tag">You stay, you watch</div><div class="badge"><b>Watch</b><span>Every groom</span></div></div>
+</section>
+</div>
+
+<div class="marq"><div class="track" id="mtrack"><span>Cats welcome <i>&#10022;</i> Gentle handling <i>&#10022;</i> Show-dog skill <i>&#10022;</i> Baths <i>&#10022;</i> Sani cuts <i>&#10022;</i> Stay with your pet <i>&#10022;</i></span><span>Cats welcome <i>&#10022;</i> Gentle handling <i>&#10022;</i> Show-dog skill <i>&#10022;</i> Baths <i>&#10022;</i> Sani cuts <i>&#10022;</i> Stay with your pet <i>&#10022;</i></span></div></div>
+
+<section id="services"><div class="container">
+<div class="sec-head rev"><span class="eyebrow">The Services</span><h2>Calm, careful, <em>transparent</em></h2><p>Nervous pets do better when their person is in the room. So we made that the whole idea.</p></div>
+<div class="svc-grid"><div class="svc rev"><div class="ic">&#128065;</div><h3>Open Grooming</h3><p>You stay with your pet from bath to finish. Nothing hidden.</p></div><div class="svc rev"><div class="ic">&#128054;</div><h3>Doodle &amp; Sani Cuts</h3><p>Practical trims that keep coats manageable between visits.</p></div><div class="svc rev"><div class="ic">&#128008;</div><h3>Cat Grooming</h3><p>Cats handled gently, with the patience they demand.</p></div><div class="svc rev"><div class="ic">&#128704;</div><h3>Bath &amp; Dry</h3><p>Thorough wash and a proper dry, no damp spots.</p></div><div class="svc rev"><div class="ic">&#128062;</div><h3>Nail &amp; Ear Care</h3><p>Small details done kindly.</p></div><div class="svc rev"><div class="ic">&#127942;</div><h3>Show-Dog Experience</h3><p>Years on the show circuit, applied to your family pet.</p></div></div>
+</div></section>
+
+<section class="alt" id="process"><div class="container">
+<div class="sec-head rev"><span class="eyebrow">The Visit</span><h2>No closed doors, <em>no guessing</em></h2></div>
+<div class="steps"><div class="step rev"><h3>Arrive</h3><p>We meet your pet and talk through the cut.</p></div><div class="step rev"><h3>Stay</h3><p>You're welcome to stay in the room the whole time.</p></div><div class="step rev"><h3>Groom</h3><p>Done at their pace, with breaks if they need them.</p></div><div class="step rev"><h3>Home</h3><p>You saw every step, so you know exactly what happened.</p></div></div>
+</div></section>
+
+<section id="gallery"><div class="container">
+<div class="sec-head rev"><span class="eyebrow">Gallery</span><h2>Inside the <em>groom room</em></h2></div>
+<div class="gal"><div class="shot tall rev"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1000&q=80&auto=format&fit=crop" alt="Calm and cared for"><div class="cap"><small>HAPPY</small>Calm and cared for</div></div><div class="shot rev"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=1000&q=80&auto=format&fit=crop" alt="Gentle hands"><div class="cap"><small>FRIENDS</small>Gentle hands</div></div><div class="shot rev"><img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=1000&q=80&auto=format&fit=crop" alt="First visit"><div class="cap"><small>PUPPY</small>First visit</div></div><div class="shot rev"><img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=1000&q=80&auto=format&fit=crop" alt="Fresh and clean"><div class="cap"><small>AFTER</small>Fresh and clean</div></div></div>
+</div></section>
+
+<section class="alt" id="reviews"><div class="container">
+<div class="sec-head rev"><span class="eyebrow">Pet Parents</span><h2>Words from <em>pet parents</em></h2></div>
+<div class="quotes"><div class="qt rev"><div class="starsm">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>The owner invited me to stay with my doodle. First time ever I've been allowed to stay, and my dog was relieved too.</p><div class="who"><b>Google Review</b></div></div><div class="qt rev"><div class="starsm">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>They were gentle and cared about making sure my cat was not too uncomfortable during his bath.</p><div class="who"><b>Google Review</b></div></div><div class="qt rev"><div class="starsm">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Wonderful place, great job, great prices and I trust them with my dogs.</p><div class="who"><b>Google Review</b></div></div></div>
+</div></section>
+
+<section id="visit"><div class="container vwrap">
+<div>
+<div class="sec-head rev" style="margin-bottom:8px"><span class="eyebrow">Find Us</span><h2>On <em>MacKintosh Drive</em></h2></div>
+<div class="rev"><div class="vrow"><span>Address</span><b>1050 MacKintosh Dr Ste 4, Brownsville, TX 78521</b></div><div class="vrow"><span>Phone</span><a href='tel:+19565728172'>(956) 572-8172</a></div><div class="vrow"><span>Mon - Sat</span><b>9:00am - 4:00pm</b></div><div class="vrow"><span>Sunday</span><b>Closed</b></div><div class="vrow"><span>Rating</span><b style='color:var(--acc)'>&#9733; 3.8 &mdash; 34 reviews</b></div></div>
+<div style="margin-top:32px"><a class="btn mag" href="tel:+19565728172">Call (956) 572-8172 &rarr;</a></div>
+</div>
+<div class="map rev"><div class="pin"></div><div class="addr">1050 MacKintosh Dr Ste 4<br>Brownsville, TX 78521</div></div>
+</div></section>
+
+<section style="padding:10px 24px 102px"><div class="container final rev" style="padding:88px 24px">
+<h2>Book a groom you can <em>watch</em></h2><p>Bring your pet, stay in the room, and see the work for yourself.</p><a class="btn mag" href="tel:+19565728172">Call (956) 572-8172 &rarr;</a>
+</div></section>
+
+<footer><div class="container fwrap">
+<div>&copy; <span id="yr"></span> Golden Paws Grooming &middot; Brownsville, TX</div>
+<div><a href='tel:+19565728172'>(956) 572-8172</a> &middot; 1050 MacKintosh Dr</div>
+<div style="opacity:.75">Free demo website &mdash; designed by Arif</div>
+</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+document.getElementById('yr').textContent=new Date().getFullYear();
+const ld=gsap.timeline();
+ld.to('#ldbar',{scaleX:1,duration:1.3,ease:'power2.inOut'})
+ .to('#ldname',{yPercent:-130,duration:.55,ease:'power3.in'},'+=.15')
+ .to('#loader',{yPercent:-100,duration:.8,ease:'power4.inOut'},'-=.1')
+ .set('#loader',{display:'none'});
+ld.add(()=>{
+ gsap.from('.hero .kicker',{opacity:0,x:-30,duration:.7});
+ gsap.from('.hero h1',{opacity:0,y:60,duration:1,ease:'power3.out',delay:.05});
+ gsap.from('.hero .sub, .hero .cta-row',{opacity:0,y:26,duration:.8,stagger:.15,delay:.4});
+ gsap.from('.hero .fact',{opacity:0,y:22,duration:.7,stagger:.1,delay:.55});
+ gsap.from('.hero-img',{opacity:0,scale:.94,x:60,duration:1.1,ease:'power3.out',delay:.15});
+ gsap.from('.badge',{scale:0,rotate:-30,duration:.7,ease:'back.out(2)',delay:.85});
+});
+gsap.to('.hero-img img',{scale:1.08,yPercent:6,ease:'none',scrollTrigger:{trigger:'.hero-img',start:'top bottom',end:'bottom top',scrub:true}});
+ScrollTrigger.create({start:60,onEnter:()=>document.getElementById('hdr').classList.add('on'),onLeaveBack:()=>document.getElementById('hdr').classList.remove('on')});
+gsap.to(document.getElementById('mtrack'),{xPercent:-50,duration:22,ease:'none',repeat:-1});
+gsap.utils.toArray('.rev').forEach(el=>{gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}})});
+gsap.utils.toArray('.shot img').forEach(img=>{gsap.fromTo(img,{yPercent:-6,scale:1.12},{yPercent:6,ease:'none',scrollTrigger:{trigger:img.closest('.shot'),start:'top bottom',end:'bottom top',scrub:true}})});
+const cur=document.querySelector('.cur'),dot=document.querySelector('.cur-dot');
+let cx=0,cy=0,tx=0,ty=0;
+window.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;dot.style.transform=`translate(${tx-2.5}px,${ty-2.5}px)`});
+gsap.ticker.add(()=>{cx+=(tx-cx)*.14;cy+=(ty-cy)*.14;cur.style.transform=`translate(${cx-18}px,${cy-18}px)`});
+document.querySelectorAll('a,.svc,.shot').forEach(el=>{el.addEventListener('mouseenter',()=>cur.classList.add('hov'));el.addEventListener('mouseleave',()=>cur.classList.remove('hov'))});
+document.querySelectorAll('.mag').forEach(b=>{
+ b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.22,y:(e.clientY-r.top-r.height/2)*.32,duration:.4})});
+ b.addEventListener('mouseleave',()=>gsap.to(b,{x:0,y:0,duration:.5,ease:'elastic.out(1,.4)'}));
+});
+</script>
+</body>
+</html>
